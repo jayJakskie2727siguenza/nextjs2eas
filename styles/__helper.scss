@@ -1,0 +1,28 @@
+.container {
+	width: 80vw;
+
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.opacity-show {
+	opacity: 1;
+	z-index: 7;
+	transition: 0.5s;
+}
+
+.opacity-hide {
+	opacity: 0;
+	z-index: -10;
+	transition: 0.5s;
+}
+
+.padding {
+	&--sections {
+		padding: 4rem 0rem;
+	}
+}
+
+.displayNone {
+	display: none;
+}

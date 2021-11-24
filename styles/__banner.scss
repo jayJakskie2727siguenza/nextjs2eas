@@ -1,0 +1,20 @@
+.banner {
+	background-image: url("../images/about-us.png");
+	background-size: cover;
+
+	&__content {
+		padding: 2.5rem 0rem;
+
+		&--heading {
+			text-transform: capitalize;
+			padding: 0rem 1rem;
+			border-left: 2px solid $primary;
+			margin-bottom: 10px;
+		}
+		&--subheadingContent {
+			display: flex;
+			column-gap: 1rem;
+			text-transform: capitalize;
+		}
+	}
+}

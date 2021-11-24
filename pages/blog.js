@@ -7,14 +7,12 @@ import {
 	getFeaturedMedia,
 } from "../utils/wordpress";
 
-import Post from "../components/Post";
-
 const Blog = ({ posts, events, media }) => {
 	console.log(posts);
 	const jsxPosts = posts?.map((post) => {
 		const featuredMediaId = post["featured_media"];
 		const featuredMedia = getFeaturedMedia(media, featuredMediaId);
-		return <Post post={post} featuredMedia={featuredMedia} key={post.id} />;
+		return <h1>hello</h1>;
 	});
 	return (
 		<div>
@@ -26,17 +24,17 @@ const Blog = ({ posts, events, media }) => {
 
 export default Blog;
 
-export async function getStaticProps({ params }) {
-	const posts = await getPosts();
-	const events = await getEvents();
-	const media = await getMedia();
+// export async function getStaticProps({ params }) {
+// 	const posts = await getPosts();
+// 	const events = await getEvents();
+// 	const media = await getMedia();
 
-	return {
-		props: {
-			posts,
-			events,
-			media,
-		},
-		revalidate: 10, // In seconds
-	};
-}
+// 	return {
+// 		props: {
+// 			posts,
+// 			events,
+// 			media,
+// 		},
+// 		revalidate: 10, // In seconds
+// 	};
+// }

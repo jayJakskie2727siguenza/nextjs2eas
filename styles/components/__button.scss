@@ -1,0 +1,83 @@
+.btn {
+	// border: none;
+	font-family: "Rubik", sans-serif;
+	font-weight: 500;
+	padding: 16px 45px;
+	border-radius: 50px;
+	cursor: pointer;
+	outline-style: none;
+
+	&__primary {
+		transition: 0.3s;
+		background: $primary;
+		color: white;
+		border: 1px solid $primary;
+		outline-style: none;
+		&:hover {
+			background-color: transparent;
+			color: black;
+		}
+
+		&--outline {
+			border: 1px solid $primary;
+		}
+	}
+
+	&__1 {
+		font-family: "Rubik", sans-serif;
+		font-weight: 500;
+		padding: 16px 45px;
+		border-radius: 50px;
+		cursor: pointer;
+		background: transparent;
+		color: $primary;
+		outline-style: none;
+	}
+
+	&__cta {
+		padding: 12px 20px;
+		border-style: none;
+		background-color: $warning;
+		color: white;
+		border-radius: 20px;
+		outline-style: none;
+		cursor: pointer;
+		text-transform: capitalize;
+		width: 100%;
+	}
+
+	&__warning {
+		border: none;
+		font-family: "Rubik", sans-serif;
+		font-weight: 500;
+		padding: 16px 45px;
+		border-radius: 50px;
+		cursor: pointer;
+		background-color: $warning;
+		color: white;
+		outline-style: none;
+	}
+}
+
+.btnDisabled {
+	cursor: not-allowed;
+	opacity: 0.6;
+}
+
+.btnHoveringFloat {
+	transition: 0.2s;
+	&:hover {
+		box-shadow: 0px 3px 20px 0px $box-shadow-color;
+		transform: translateY(-3px);
+	}
+
+	&:active {
+		box-shadow: 0px 0px 0px 0px $box-shadow-color;
+		transform: translateY(0px);
+	}
+}
+
+.btnDisabled {
+	cursor: not-allowed;
+	opacity: 0.6;
+}

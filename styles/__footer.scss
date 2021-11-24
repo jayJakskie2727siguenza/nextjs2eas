@@ -1,0 +1,182 @@
+.footer {
+	background-image: url("../images/footer.jpg");
+	background-size: cover;
+	color: white;
+
+	&__wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		column-gap: 2rem;
+
+		@media (max-width: 944px) {
+			grid-template-columns: 1fr 1fr;
+			row-gap: 3rem;
+		}
+		@media (max-width: 700px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__left {
+		&--imgWrapper {
+			width: 10rem;
+			margin-bottom: 20px;
+			margin-left: -1rem;
+		}
+
+		&--content {
+			&--followUs {
+				display: flex;
+				column-gap: 1rem;
+				margin-top: 1rem;
+				align-items: center;
+
+				&--socialMedia {
+					display: flex;
+					column-gap: 10px;
+					&--iconWrapper {
+						color: white;
+						display: grid;
+						// border: 1px solid white;
+						background-color: $warning;
+						padding: 7px;
+						border-radius: 50%;
+						align-items: center;
+						justify-items: center;
+					}
+					&--icon {
+						width: 18px;
+						height: 18px;
+						color: white;
+					}
+				}
+				&--text {
+					text-transform: capitalize;
+				}
+			}
+		}
+	}
+	&__middle {
+		&--heading {
+			margin-bottom: 2rem;
+			text-transform: capitalize;
+		}
+
+		&--content {
+			&--lists {
+				display: flex;
+				flex-direction: column;
+				row-gap: 10px;
+			}
+
+			&--items {
+				&--wrapper {
+					display: grid;
+					grid-template-columns: 1rem 1fr;
+					color: white;
+					column-gap: 1rem;
+					align-items: baseline;
+				}
+
+				&--text {
+					margin-top: 0px;
+					font-style: normal;
+				}
+
+				&--iconWrapper {
+					display: grid;
+					justify-content: center;
+					font-size: 17px;
+					color: $warning;
+				}
+			}
+		}
+	}
+	&__right {
+		&--heading {
+			margin-bottom: 2rem;
+			text-transform: capitalize;
+		}
+
+		&--content {
+			&--text {
+				text-transform: capitalize;
+			}
+			&--inputWrapper {
+				margin-top: 1rem;
+			}
+			&--cta {
+				margin-top: 1rem;
+				display: flex;
+
+				&--inputWrapper {
+					background: white;
+					padding: 10px 20px 10px 20px;
+					border-top-left-radius: 22px;
+					border-bottom-left-radius: 22px;
+
+					&--input {
+						border: none;
+						outline: none;
+
+						&--emptyField {
+							border: none;
+							outline: none;
+							&::placeholder {
+								color: $danger;
+							}
+						}
+					}
+
+					&--btn {
+						text-transform: capitalize;
+						background: $warning;
+						color: white;
+						border: none;
+						padding: 0rem 40px;
+						border-radius: 22px;
+						margin-left: -20px;
+
+						cursor: pointer;
+
+						&--error {
+							text-transform: capitalize;
+							background: $danger;
+							color: white;
+							border: none;
+							padding: 0rem 40px;
+							border-radius: 22px;
+							margin-left: -20px;
+
+							cursor: pointer;
+						}
+
+						@media (max-width: 370px) {
+							padding: 0rem 35px;
+							margin-left: -30px;
+						}
+					}
+
+					@media (max-width: 700px) {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+	&__copyright {
+		padding: 2px 0px;
+		background-color: rgb(33, 33, 33);
+		text-align: center;
+		color: white;
+		font-size: 70%;
+
+		&--a {
+			color: white;
+		}
+
+		@media (max-width: 840px) {
+			padding-bottom: 5rem;
+		}
+	}
+}

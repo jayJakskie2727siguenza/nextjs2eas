@@ -1,0 +1,17 @@
+.cta {
+	background-color: $warning;
+	color: white;
+	padding: 2rem 0rem;
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		row-gap: 1rem;
+		align-items: center;
+		text-align: center;
+	}
+
+	&__btn {
+		text-transform: capitalize;
+	}
+}
