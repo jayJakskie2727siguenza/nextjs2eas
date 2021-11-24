@@ -7,6 +7,14 @@ export async function getWpPages() {
 	return wpPages;
 }
 
+export async function getWpPagesSlug(slug) {
+	let pagesData = await getWpPages();
+
+	let slugData = pagesData.find((itm) => itm.slug === slug);
+
+	return slugData === undefined ? "empty" : slugData;
+}
+
 export async function getCPTFeatures() {
 	const cptFeaturesRes = await fetch(BASE_URL + "/features");
 	const cptFeatures = await cptFeaturesRes.json();
