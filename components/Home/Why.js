@@ -59,8 +59,8 @@ const Why = ({ HomepageWhy }) => {
 		<section className="home__why container padding--sections">
 			<div className="home__why--headingWrapper">
 				<h2 className="home__why--headingWrapper--heading">
-					{/* {HomepageWhy.homepage_cf.why.heading &&
-						"why online accounting is good for your business?"} */}
+					{HomepageWhy.heading &&
+						"why online accounting is good for your business?"}
 					{/* Why Online Accounting Is Good For Your Business? */}
 				</h2>
 			</div>
@@ -125,11 +125,11 @@ const Why = ({ HomepageWhy }) => {
 				<div className="home__why--features--content--wrapper">
 					<div className="home__why--features--content--description">
 						<h2 className="home__why--features--content--description--heading">
-							{/* {HomepageWhy.homepage_cf.why?.subheading} */}
+							{HomepageWhy.subheading}
 							{/* You`Ve Got All Reasons To Get Started In No Time */}
 						</h2>
 						<p className="home__why--features--content--description--text">
-							{/* {HomepageWhy.homepage_cf.why?.description} */}
+							{HomepageWhy.description}
 							{/* whether you have an existing or no system in place, not a problem!
 							we can spontaneously help you move into the cloud! it`s time to
 							stop worrying about your accounting and taxation task! Xero online
@@ -140,7 +140,7 @@ const Why = ({ HomepageWhy }) => {
 					<Link href="/contact" passHref>
 						<button className="home__why--features--content--description--btn btn btn__primary">
 							<p className="home__why--features--content--description--btn--text">
-								{/* {HomepageWhy.homepage_cf.why?.button} */}
+								{HomepageWhy.button}
 								{/* schedule a free demo */}
 							</p>
 							<ArrowRightSLineIcon className="home__why--features--content--description--btn--icon" />

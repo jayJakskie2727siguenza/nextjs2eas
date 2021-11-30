@@ -32,7 +32,7 @@ import defaultimage from "../../images/defaultImages.png";
 // 	}
 // `;
 
-const Hero = () => {
+const Hero = ({ HomepageHero }) => {
 	// const { HomepageHero } = useStaticQuery(myGraphql);
 
 	return (

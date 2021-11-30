@@ -55,7 +55,7 @@ import defaultImages from "../../images/defaultImages.png";
 // 	}
 // `;
 
-const Features = () => {
+const Features = ({ HomepageFeatures }) => {
 	const [imgDivData, setImgDivData] = useState([]);
 	const [counter, setCounter] = useState(1);
 

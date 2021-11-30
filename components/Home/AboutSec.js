@@ -67,7 +67,7 @@ import defaultImages from "../../images/defaultImages.png";
 // 	}
 // `;
 
-const About = () => {
+const About = ({ HomepageAbout }) => {
 	// const { HomepageAbout, HomepageAboutNodes } = useStaticQuery(myGraphql);
 
 	return (

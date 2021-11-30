@@ -10,8 +10,6 @@ import AboutSec from "../components/Home/AboutSec";
 import Features from "../components/Home/Features";
 import { getWpPagesSlug } from "../utils/wordpress";
 
-import { HomeContext } from "../components/Context/General_Context";
-
 export default function Home({
 	seoSettingSlug,
 	homePageSlug,
@@ -31,8 +29,6 @@ export default function Home({
 	// 	return <Event event={event} key={event.id} />;
 	// });
 
-	console.log(homePageSlug.acf);
-
 	return (
 		<Layout>
 			<Seo
@@ -41,11 +37,11 @@ export default function Home({
 				sitemetadata={sitemetadata}
 				sitetitle={site_title}
 			/>
-			<Hero />
-			<Why />
-			<Service />
-			<AboutSec />
-			<Features />
+			<Hero HomepageHero={homePageSlug.acf.hero} />
+			<Why HomepageWhy={homePageSlug.acf.why} />
+			<Service HomepageServices={homePageSlug.acf.services} />
+			<AboutSec HomepageAbout={homePageSlug.acf.about} />
+			<Features HomepageFeatures={homePageSlug.acf.features} />
 		</Layout>
 	);
 
