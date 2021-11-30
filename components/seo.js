@@ -2,7 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ sitemetadata, description, lang, meta, title, sitetitle }) {
+	// console.log(sitemetadata);
+	// console.log("seo component");
+
 	//  const { generalSettings, seoSettings } = useStaticQuery(
 	//      graphql`
 	//          {
@@ -23,20 +26,17 @@ function SEO({ description, lang, meta, title }) {
 	//      `
 	//  );
 
-	// const metaDescription =
-	// 	description || seoSettings.seo_cf.sitemetadata.description;
-	const metaDescription = description || "sitetitle";
+	const metaDescription = description || sitemetadata.description;
+	// const metaDescription = description || "sitetitle";
 
 	return (
 		<Helmet
 			htmlAttributes={{
 				lang,
 			}}
-			// title={`${title} | ${generalSettings.general_settings_cf.siteTitle}`}
-			title={`${title} | siteTitle`}
-			// titleTemplate={
-			// 	!title ? `%s | ${seoSettings.seo_cf.sitemetadata.title}` : null
-			// }
+			title={`${title} | ${sitetitle}`}
+			// title={`${title} | siteTitle`}
+			// titleTemplate={!title ? `%s | ${title}` : null}
 			titleTemplate={!title ? `%s | title` : null}
 			meta={[
 				{
@@ -89,4 +89,4 @@ SEO.propTypes = {
 	title: PropTypes.string.isRequired,
 };
 
-export default SEO;
+export default React.memo(SEO);

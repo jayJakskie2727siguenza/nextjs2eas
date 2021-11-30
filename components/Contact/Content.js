@@ -1,36 +1,34 @@
 import React, { useState } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+// import { graphql, useStaticQuery } from "gatsby";
 
 import gif1 from "../../images/thankYouMessage.gif";
 import gif2 from "../../images/messages.gif";
 
-let ad;
-
-const myGraphql = graphql`
-	{
-		Contactpage: wpPage(uri: { eq: "/contact/" }) {
-			contactpage_cf {
-				heading
-				form {
-					heading
-					subheading
-				}
-			}
-		}
-		ContactPageGeneralSettings: wpPage(uri: { eq: "/generalsettings/" }) {
-			general_settings_cf {
-				contact {
-					cellphone
-				}
-				address
-				email
-			}
-		}
-	}
-`;
+// const myGraphql = graphql`
+// 	{
+// 		Contactpage: wpPage(uri: { eq: "/contact/" }) {
+// 			contactpage_cf {
+// 				heading
+// 				form {
+// 					heading
+// 					subheading
+// 				}
+// 			}
+// 		}
+// 		ContactPageGeneralSettings: wpPage(uri: { eq: "/generalsettings/" }) {
+// 			general_settings_cf {
+// 				contact {
+// 					cellphone
+// 				}
+// 				address
+// 				email
+// 			}
+// 		}
+// 	}
+// `;
 
 const Content = () => {
-	const { Contactpage, ContactPageGeneralSettings } = useStaticQuery(myGraphql);
+	// const { Contactpage, ContactPageGeneralSettings } = useStaticQuery(myGraphql);
 
 	// const formspree = "https://formspree.io/projects/1560816072481832146";
 	const formspree = "https://formspree.io/f/xnqlrboe";
@@ -128,29 +126,29 @@ const Content = () => {
 				<div className="contact__content--info">
 					<div className="contact__content--info--wrapper">
 						<h2 className="contact__content--info--heading">
-							{Contactpage.contactpage_cf?.heading}
+							{/* {Contactpage.contactpage_cf?.heading} */}
 							{/* Contact Us */}
 						</h2>
 						<h2 className="contact__content--info--subheading">
-							{ContactPageGeneralSettings.general_settings_cf?.contact
+							{/* {ContactPageGeneralSettings.general_settings_cf?.contact
 								.cellphone &&
-								`+${ContactPageGeneralSettings.general_settings_cf?.contact.cellphone}`}
+								`+${ContactPageGeneralSettings.general_settings_cf?.contact.cellphone}`} */}
 						</h2>
 					</div>
 					<p className="contact__content--info--address">
-						{ContactPageGeneralSettings.general_settings_cf?.address}
+						{/* {ContactPageGeneralSettings.general_settings_cf?.address} */}
 					</p>
 					<p className="contact__content--info--email">
-						{ContactPageGeneralSettings.general_settings_cf?.email}
+						{/* {ContactPageGeneralSettings.general_settings_cf?.email} */}
 					</p>
 				</div>
 				<div className="contact__content--cta">
 					<h2 className="contact__content--cta--heading">
-						{Contactpage.contactpage_cf.form?.heading}
+						{/* {Contactpage.contactpage_cf.form?.heading} */}
 						{/* We Love To Hear From You */}
 					</h2>
 					<p className="contact__content--cta--info">
-						{Contactpage.contactpage_cf.form?.subheading}
+						{/* {Contactpage.contactpage_cf.form?.subheading} */}
 						{/* Please call or email contact form and we will be happy to assist */}
 						you.
 					</p>
@@ -282,13 +280,13 @@ const Content = () => {
 								contact.submited ? `opacity-show` : `opacity-hide`
 							}`}
 						>
-							<div className="contact__content--cta--formWrapper--submitted--imgWrapper">
+							{/* <div className="contact__content--cta--formWrapper--submitted--imgWrapper">
 								<img
 									src={contact.submited ? gif1 : ""}
 									className="contact__content--cta--formWrapperf--submitted--img"
 									alt="project2eas"
 								/>
-							</div>
+							</div> */}
 							<h2
 								className={`contact__content--cta--formWrapper--submitted--message ${
 									contact.submitted ? "displayNone" : ""
@@ -306,13 +304,13 @@ const Content = () => {
 									: "opacity-hide"
 							}`}
 						>
-							<div className="contact__content--cta--formWrapper--sent--imgWrapper">
+							{/* <div className="contact__content--cta--formWrapper--sent--imgWrapper">
 								<img
 									src={contact.loading ? gif2 : ""}
 									className="contact__content--cta--formWrapper--sent--img"
 									alt="project2eas"
 								/>
-							</div>
+							</div> */}
 							<h2
 								className={`contact__content--cta--formWrapper--sent--message ${
 									contact.loading ? "" : "displayNone"

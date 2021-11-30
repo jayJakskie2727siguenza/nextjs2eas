@@ -1,5 +1,5 @@
 // import Head from "next/head";
-
+import React from "react";
 import Seo from "../components/seo";
 
 import Layout from "../components/Layout";
@@ -8,10 +8,19 @@ import Why from "../components/Home/Why";
 import Service from "../components/Home/Service";
 import AboutSec from "../components/Home/AboutSec";
 import Features from "../components/Home/Features";
-
 import { getWpPagesSlug } from "../utils/wordpress";
 
-export default function Home({ slugPages }) {
+import { HomeContext } from "../components/Context/General_Context";
+
+export default function Home({
+	seoSettingSlug,
+	homePageSlug,
+	generalSettingSlug,
+}) {
+	const { sitemetadata } = seoSettingSlug.acf;
+	const { sitemetatitle, sitemetadescription } = homePageSlug.acf.homepage_seo;
+	const { site_title } = generalSettingSlug.acf;
+
 	// const jsxPosts = posts.map((post) => {
 	// 	const featuredMediaId = post["featured_media"];
 	// 	const featuredMedia = getFeaturedMedia(media, featuredMediaId);
@@ -21,14 +30,16 @@ export default function Home({ slugPages }) {
 	// const jsxEvents = events.map((event) => {
 	// 	return <Event event={event} key={event.id} />;
 	// });
-	console.log(slugPages);
+
+	console.log(homePageSlug.acf);
 
 	return (
 		<Layout>
 			<Seo
-			// title="home"
-			// title={homepage_cf?.homepageSeo.sitemetatitle}
-			// description={homepage_cf?.homepageSeo.sitemetadescription}
+				title={sitemetatitle}
+				description={sitemetadescription}
+				sitemetadata={sitemetadata}
+				sitetitle={site_title}
 			/>
 			<Hero />
 			<Why />
@@ -67,11 +78,15 @@ export default function Home({ slugPages }) {
 }
 
 export async function getStaticProps() {
-	const slugPages = await getWpPagesSlug("home");
+	const seoSettingSlug = await getWpPagesSlug("seosettings");
+	const homePageSlug = await getWpPagesSlug("home");
+	const generalSettingSlug = await getWpPagesSlug("generalsettings");
 
 	return {
 		props: {
-			slugPages,
+			seoSettingSlug,
+			homePageSlug,
+			generalSettingSlug,
 		},
 		revalidate: 10, // In seconds
 	};

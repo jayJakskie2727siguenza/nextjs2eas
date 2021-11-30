@@ -1,66 +1,66 @@
 import React, { useState, useEffect } from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import Image from "gatsby-image";
+// import { graphql, useStaticQuery } from "gatsby";
+// import Image from "gatsby-image";
 
 // import img1 from "../../images/006-audit.png";
 import defaultImages from "../../images/defaultImages.png";
 
 // import imgData from "../addOnsImgData";
 
-const myGraphql = graphql`
-	{
-		HomepageFeatures: wpPage(uri: { eq: "/" }) {
-			homepage_cf {
-				features {
-					heading
-					subheading
-				}
-				addons
-			}
-		}
-		HomepageFeaturesNodes: allWpHighlightfeatureAcf {
-			nodes {
-				homepage_highlightfeatures_cpt {
-					heading
-					description
-					image {
-						altText
-						localFile {
-							childImageSharp {
-								fluid(quality: 100) {
-									...GatsbyImageSharpFluid_noBase64
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		HomepageAddsOnNodes: allWpAddOnsAcf {
-			nodes {
-				homepage_addons_cpt {
-					image {
-						altText
-						localFile {
-							childImageSharp {
-								fluid(quality: 100) {
-									...GatsbyImageSharpFluid_noBase64
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-`;
+// const myGraphql = graphql`
+// 	{
+// 		HomepageFeatures: wpPage(uri: { eq: "/" }) {
+// 			homepage_cf {
+// 				features {
+// 					heading
+// 					subheading
+// 				}
+// 				addons
+// 			}
+// 		}
+// 		HomepageFeaturesNodes: allWpHighlightfeatureAcf {
+// 			nodes {
+// 				homepage_highlightfeatures_cpt {
+// 					heading
+// 					description
+// 					image {
+// 						altText
+// 						localFile {
+// 							childImageSharp {
+// 								fluid(quality: 100) {
+// 									...GatsbyImageSharpFluid_noBase64
+// 								}
+// 							}
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 		HomepageAddsOnNodes: allWpAddOnsAcf {
+// 			nodes {
+// 				homepage_addons_cpt {
+// 					image {
+// 						altText
+// 						localFile {
+// 							childImageSharp {
+// 								fluid(quality: 100) {
+// 									...GatsbyImageSharpFluid_noBase64
+// 								}
+// 							}
+// 						}
+// 					}
+// 				}
+// 			}
+// 		}
+// 	}
+// `;
 
 const Features = () => {
 	const [imgDivData, setImgDivData] = useState([]);
 	const [counter, setCounter] = useState(1);
 
-	const { HomepageFeatures, HomepageFeaturesNodes, HomepageAddsOnNodes } =
-		useStaticQuery(myGraphql);
+	// const { HomepageFeatures, HomepageFeaturesNodes, HomepageAddsOnNodes } =
+	// 	useStaticQuery(myGraphql);
 
 	const groupingImagesFunctionalities = (arrayData, groupBy = 1) => {
 		let groupedData = [];
@@ -81,9 +81,9 @@ const Features = () => {
 		return data;
 	};
 
-	useEffect(() => {
-		setImgDivData(groupingImagesFunctionalities(HomepageAddsOnNodes.nodes, 4));
-	}, [HomepageAddsOnNodes]);
+	// useEffect(() => {
+	// 	setImgDivData(groupingImagesFunctionalities(HomepageAddsOnNodes.nodes, 4));
+	// }, [HomepageAddsOnNodes]);
 
 	// setting counter in addOns
 	useEffect(() => {
@@ -106,11 +106,11 @@ const Features = () => {
 		<section className="home__features container padding--sections">
 			<div className="home__features--top">
 				<h2 className="home__features--top--heading">
-					{HomepageFeatures.homepage_cf?.features.heading}
+					{/* {HomepageFeatures.homepage_cf?.features.heading} */}
 					{/* POPULAR HOME FEATURES TO RUN EVERY PART OF YOUR BUSINESS */}
 				</h2>
 				<p className="home__features--top--subheading">
-					{HomepageFeatures.homepage_cf?.features.subheading}
+					{/* {HomepageFeatures.homepage_cf?.features.subheading} */}
 					{/* Accounting Software with all the time-saving tools you need to grow
 					your business. Always secure and reliable and our experts are here to
 					support you 24/7. */}
@@ -118,7 +118,7 @@ const Features = () => {
 			</div>
 			<div className="home__features--highlights">
 				<ul className="home__features--highlights--lists">
-					{HomepageFeaturesNodes.nodes.map(
+					{/* {HomepageFeaturesNodes.nodes.map(
 						({ homepage_highlightfeatures_cpt: itm }, indx) => {
 							return (
 								<li
@@ -151,16 +151,16 @@ const Features = () => {
 								</li>
 							);
 						}
-					)}
+					)} */}
 				</ul>
 			</div>
 			<div className="home__features--highlights--addOns padding--sections">
 				<h2 className="home__features--highlights--addOns--heading">
-					{HomepageFeatures.homepage_cf?.addons}
+					{/* {HomepageFeatures.homepage_cf?.addons} */}
 					{/* other xero add-on we recommend for your business */}
 				</h2>
 				<div className="home__features--highlights--addOns--recommended">
-					{imgDivData.map((itm, indx) => {
+					{/* {imgDivData.map((itm, indx) => {
 						return (
 							<div
 								key={`${indx}`}
@@ -192,7 +192,7 @@ const Features = () => {
 								})}
 							</div>
 						);
-					})}
+					})} */}
 				</div>
 			</div>
 		</section>

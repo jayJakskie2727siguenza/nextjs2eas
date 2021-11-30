@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+// import { useStaticQuery, graphql } from "gatsby";
 
 import Seo from "../components/seo";
 import Layout from "../components/Layout";
@@ -9,31 +9,41 @@ import CallToAction from "../components/CallToAction";
 import Solutions from "../components/About/Solutions";
 import Goals from "../components/About/Goals";
 import Achievements from "../components/About/Achievements";
+import { getWpPagesSlug } from "../utils/wordpress";
 
-const myGraphql = graphql`
-	{
-		wpPage(uri: { eq: "/about/" }) {
-			aboutpage_cf {
-				aboutpageSeo {
-					sitemetatitle
-					sitemetadescription
-				}
-			}
-		}
-	}
-`;
+// const myGraphql = graphql`
+// 	{
+// 		wpPage(uri: { eq: "/about/" }) {
+// 			aboutpage_cf {
+// 				aboutpageSeo {
+// 					sitemetatitle
+// 					sitemetadescription
+// 				}
+// 			}
+// 		}
+// 	}
+// `;
 
-const AboutPage = () => {
-	const {
-		wpPage: { aboutpage_cf },
-	} = useStaticQuery(myGraphql);
+const AboutPage = ({ seoSettingSlug, aboutPageSlug, generalSettingSlug }) => {
+	const { sitemetadata } = seoSettingSlug.acf;
+	const { sitemetatitle, sitemetadescription } =
+		aboutPageSlug.acf.aboutpage_seo;
+	const { site_title } = generalSettingSlug.acf;
+	// const {
+	// 	wpPage: { aboutpage_cf },
+	// } = useStaticQuery(myGraphql);
 
 	return (
 		<Layout>
 			<Seo
-				// title="about"
-				title={aboutpage_cf?.aboutpageSeo.sitemetatitle}
-				description={aboutpage_cf?.aboutpageSeo.sitemetadescription}
+				// title="title"
+				// description="description"
+				// sitemetadata="sitemetadata"
+				// sitetitle="sitetitle"
+				title={sitemetatitle}
+				description={sitemetadescription}
+				sitemetadata={sitemetadata}
+				sitetitle={site_title}
 			/>
 			<Banner pages={"about"} />
 			<Solutions />
@@ -45,3 +55,18 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+export async function getStaticProps() {
+	const seoSettingSlug = await getWpPagesSlug("seosettings");
+	const aboutPageSlug = await getWpPagesSlug("about");
+	const generalSettingSlug = await getWpPagesSlug("generalsettings");
+
+	return {
+		props: {
+			seoSettingSlug,
+			aboutPageSlug,
+			generalSettingSlug,
+		},
+		revalidate: 10, // In seconds
+	};
+}

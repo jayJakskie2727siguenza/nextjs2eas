@@ -1,5 +1,5 @@
 const path = require("path");
-const withSass = require("@zeit/next-sass");
+// const withSass = require("@zeit/next-sass");
 
 module.exports = {
 	reactStrictMode: true,
@@ -9,11 +9,11 @@ module.exports = {
 	},
 };
 
-module.exports = {
-	sassOptions: {
-		includePaths: [path.join(__dirname, "styles")],
-	},
-};
-module.exports = withSass({
-	cssModule: true,
-});
+// module.exports = {
+// 	sassOptions: {
+// 		includePaths: [path.join(__dirname, "styles")],
+// 	},
+// };
+// module.exports = withSass({
+// 	cssModule: true,
+// });

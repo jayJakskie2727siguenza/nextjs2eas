@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 // import { Link } from "gatsby";
 
-import Link from 'next/link'
-import Image from 'next/image'
+import Link from "next/link";
+import Image from "next/image";
 
 // import { Link, graphql, useStaticQuery } from "gatsby";
 // import Image from "gatsby-image";
@@ -21,50 +21,50 @@ import {
 import FacebookFillIcon from "remixicon-react/FacebookFillIcon";
 import LinkedinFillIcon from "remixicon-react/LinkedinFillIcon";
 
-import addToMailChimp from "gatsby-plugin-mailchimp";
+// import addToMailChimp from "gatsby-plugin-mailchimp";
 
 import defaultImage from "../images/defaultImages.png";
 
-const myGraphql = graphql`
-	{
-		FooterSection: wpPage(uri: { eq: "/generalsettings/" }) {
-			general_cf {
-				footer {
-					description
-					image {
-						altText
-						localFile {
-							childImageSharp {
-								fluid(quality: 100) {
-									...GatsbyImageSharpFluid_noBase64
-								}
-							}
-						}
-					}
-					cta {
-						heading
-						description
-					}
-				}
-			}
-			general_settings_cf {
-				contact {
-					cellphone
-					telephone
-				}
-				address
-				email
-				socialmedia {
-					facebook
-					linkedin
-				}
-			}
-		}
-	}
-`;
+// const myGraphql = graphql`
+// 	{
+// 		FooterSection: wpPage(uri: { eq: "/generalsettings/" }) {
+// 			general_cf {
+// 				footer {
+// 					description
+// 					image {
+// 						altText
+// 						localFile {
+// 							childImageSharp {
+// 								fluid(quality: 100) {
+// 									...GatsbyImageSharpFluid_noBase64
+// 								}
+// 							}
+// 						}
+// 					}
+// 					cta {
+// 						heading
+// 						description
+// 					}
+// 				}
+// 			}
+// 			general_settings_cf {
+// 				contact {
+// 					cellphone
+// 					telephone
+// 				}
+// 				address
+// 				email
+// 				socialmedia {
+// 					facebook
+// 					linkedin
+// 				}
+// 			}
+// 		}
+// 	}
+// `;
 
 const Footer = () => {
-	const { FooterSection } = useStaticQuery(myGraphql);
+	// const { FooterSection } = useStaticQuery(myGraphql);
 	const [telephoneNum, setTelephoneNum] = useState("");
 
 	const [state, setState] = useState({
@@ -73,11 +73,11 @@ const Footer = () => {
 		loading: false,
 	});
 
-	useEffect(() => {
-		setTelephoneNum(
-			handleFormattedTelNum(FooterSection.general_settings_cf.contact.telephone)
-		);
-	}, [FooterSection.general_settings_cf.contact.telephone]);
+	// useEffect(() => {
+	// 	setTelephoneNum(
+	// 		handleFormattedTelNum(FooterSection.general_settings_cf.contact.telephone)
+	// 	);
+	// }, [FooterSection.general_settings_cf.contact.telephone]);
 
 	const { email, result } = state;
 
@@ -141,9 +141,9 @@ const Footer = () => {
 			<div className="footer padding--sections">
 				<div className="footer__wrapper container">
 					<div className="footer__left">
-						<Link to="/">
+						<Link href="/" passHref>
 							<div className="footer__left--imgWrapper">
-								{FooterSection.general_cf.footer.image ? (
+								{/* {FooterSection.general_cf.footer.image ? (
 									<Image
 										className="footer__left--img"
 										fluid={
@@ -158,20 +158,20 @@ const Footer = () => {
 										className="footer__left--img"
 										alt="defaultImage"
 									/>
-								)}
+								)} */}
 							</div>
 						</Link>
 
 						<div className="footer__left--content">
 							<p className="footer__left--content--description">
-								{FooterSection.general_cf.footer?.description}
+								{/* {FooterSection.general_cf.footer?.description} */}
 							</p>
 							<div className="footer__left--content--followUs">
 								<p className="footer__left--content--followUs--text">
 									follow us:
 								</p>
 								<div className="footer__left--content--followUs--socialMedia">
-									<a
+									{/* <a
 										href={`${FooterSection.general_settings_cf.socialmedia?.facebook}`}
 										target="_blank"
 										rel="noreferrer"
@@ -190,7 +190,7 @@ const Footer = () => {
 										<div className="footer__left--content--followUs--socialMedia--iconWrapper">
 											<LinkedinFillIcon className="footer__left--content--followUs--socialMedia--icon" />
 										</div>
-									</a>
+									</a> */}
 								</div>
 							</div>
 						</div>
@@ -199,7 +199,7 @@ const Footer = () => {
 						<h2 className="footer__middle--heading">company address</h2>
 						<div className="footer__middle--content">
 							<ul className="footer__middle--content--lists">
-								{FooterSection.general_settings_cf.address && (
+								{/* {FooterSection.general_settings_cf.address && (
 									<li className="footer__middle--content--items">
 										<div className="footer__middle--content--items--wrapper">
 											<div className="footer__middle--content--items--iconWrapper">
@@ -214,9 +214,9 @@ const Footer = () => {
 										</div>
 									</li>
 									////
-								)}
+								)} */}
 
-								{FooterSection.general_settings_cf.contact.telephone && (
+								{/* {FooterSection.general_settings_cf.contact.telephone && (
 									<li className="footer__middle--content--items">
 										<a href={`tel:(083) ${telephoneNum}`}>
 											<div className="footer__middle--content--items--wrapper">
@@ -233,9 +233,9 @@ const Footer = () => {
 											</div>
 										</a>
 									</li>
-								)}
+								)} */}
 
-								{FooterSection.general_settings_cf.contact.cellphone && (
+								{/* {FooterSection.general_settings_cf.contact.cellphone && (
 									<li className="footer__middle--content--items">
 										<a
 											href={`tel:+${FooterSection.general_settings_cf.contact?.cellphone}`}
@@ -255,8 +255,8 @@ const Footer = () => {
 											</div>
 										</a>
 									</li>
-								)}
-								{FooterSection.general_settings_cf.email && (
+								)} */}
+								{/* {FooterSection.general_settings_cf.email && (
 									<li className="footer__middle--content--items">
 										<a href="mailto:solutions.2eas@gmail.com">
 											<div className="footer__middle--content--items--wrapper">
@@ -272,17 +272,17 @@ const Footer = () => {
 											</div>
 										</a>
 									</li>
-								)}
+								)} */}
 							</ul>
 						</div>
 					</div>
 					<div className="footer__right">
 						<h2 className="footer__right--heading">
-							{FooterSection.general_cf.footer.cta?.text}
+							{/* {FooterSection.general_cf.footer.cta?.text} */}
 						</h2>
 						<div className="footer__right--content">
 							<p className="footer__right--content--text">
-								{FooterSection.general_cf.footer.cta?.description}
+								{/* {FooterSection.general_cf.footer.cta?.description} */}
 							</p>
 							<div className="footer__right--content--cta">
 								<div className="footer__right--content--cta--inputWrapper">
@@ -304,7 +304,7 @@ const Footer = () => {
 								<button
 									disabled={false}
 									// onClick={submitButton}
-                                    onCLick={()=>console.log('click')}
+									onClick={() => console.log("click")}
 									className={`footer__right--content--cta--inputWrapper--btn${
 										result === "error" ? "--error" : ""
 									}`}

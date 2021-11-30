@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "gatsby";
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { HomeContext } from "../Context/General_Context";
@@ -49,7 +49,7 @@ const MobileNav = () => {
 		<div className={`mobileNav${generalCtx.showNavSlider ? "--show" : ""}`}>
 			<div className={`mobileNav__wrapper`}>
 				<ul className="mobileNav__lists">
-					<Link to="/">
+					<Link href="/" passHref>
 						<li className="mobileNav__item">
 							<FontAwesomeIcon
 								className="mobileNav__item--icon"
@@ -58,7 +58,7 @@ const MobileNav = () => {
 							<span>home</span>
 						</li>
 					</Link>
-					<Link to="/about">
+					<Link href="/about" passHref>
 						<li className="mobileNav__item">
 							<FontAwesomeIcon
 								className="mobileNav__item--icon"
@@ -67,7 +67,7 @@ const MobileNav = () => {
 							<span>about us</span>
 						</li>
 					</Link>
-					<Link to="/services">
+					<Link href="/services" passHref>
 						<li className="mobileNav__item">
 							<FontAwesomeIcon
 								className="mobileNav__item--icon"
@@ -76,7 +76,7 @@ const MobileNav = () => {
 							<span>services</span>
 						</li>
 					</Link>
-					<Link to="/contact">
+					<Link href="/contact" passHref>
 						<li className="mobileNav__item">
 							<FontAwesomeIcon
 								className="mobileNav__item--icon"
