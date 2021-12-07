@@ -23,6 +23,8 @@
 				width: 5rem;
 				justify-self: center;
 				display: grid;
+				position: relative;
+				height: 5rem;
 			}
 
 			&--content {
@@ -84,8 +86,11 @@
 
 				&--imgWrapper {
 					width: 4rem;
+					height: 5rem;
 					display: grid;
 					justify-self: center;
+					position: relative;
+					overflow: hidden;
 
 					@media (max-width: 500px) {
 						width: 100%;
@@ -133,11 +138,20 @@
 		&--imgWrapper {
 			display: grid;
 			width: 100%;
+			height: 22rem;
+			position: relative;
 			@media (max-width: 1210px) {
 				width: 35rem;
 			}
 			@media (max-width: 690px) {
 				width: 100%;
+				height: 17rem;
+			}
+			@media (max-width: 422px) {
+				height: 15rem;
+			}
+			@media (max-width: 334px) {
+				height: 12rem;
 			}
 		}
 
@@ -151,6 +165,7 @@
 		@media (max-width: 1210px) {
 			grid-template-columns: 1fr;
 			row-gap: 20px;
+			justify-items: center;
 		}
 	}
 }

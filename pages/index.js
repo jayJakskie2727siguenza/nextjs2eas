@@ -8,12 +8,25 @@ import Why from "../components/Home/Why";
 import Service from "../components/Home/Service";
 import AboutSec from "../components/Home/AboutSec";
 import Features from "../components/Home/Features";
-import { getWpPagesSlug } from "../utils/wordpress";
+import {
+	getWpPagesSlug,
+	getCPTFeatures,
+	getCPTServices,
+	getCPTAboutProjects,
+	getCPTHighlightFeatures,
+	getCPTAddons,
+} from "../utils/wordpress";
 
 export default function Home({
 	seoSettingSlug,
 	homePageSlug,
 	generalSettingSlug,
+	homePageFeaturesNodes,
+	homePageServicesNodes,
+	homePageAboutProjectsNodes,
+	homePageFeaturesHighlightNodes,
+	homePageAddonsNodes,
+	generalSlug,
 }) {
 	const { sitemetadata } = seoSettingSlug.acf;
 	const { sitemetatitle, sitemetadescription } = homePageSlug.acf.homepage_seo;
@@ -30,7 +43,7 @@ export default function Home({
 	// });
 
 	return (
-		<Layout>
+		<Layout Banner={generalSlug.acf.banner}>
 			<Seo
 				title={sitemetatitle}
 				description={sitemetadescription}
@@ -38,10 +51,23 @@ export default function Home({
 				sitetitle={site_title}
 			/>
 			<Hero HomepageHero={homePageSlug.acf.hero} />
-			<Why HomepageWhy={homePageSlug.acf.why} />
-			<Service HomepageServices={homePageSlug.acf.services} />
-			<AboutSec HomepageAbout={homePageSlug.acf.about} />
-			<Features HomepageFeatures={homePageSlug.acf.features} />
+			<Why
+				HomepageWhy={homePageSlug.acf.why}
+				homePageFeaturesNodes={homePageFeaturesNodes}
+			/>
+			<Service
+				HomepageServices={homePageSlug.acf.services}
+				homePageServicesNodes={homePageServicesNodes}
+			/>
+			<AboutSec
+				HomepageAbout={homePageSlug.acf.about}
+				homePageAboutProjectsNodes={homePageAboutProjectsNodes}
+			/>
+			<Features
+				HomepageFeatures={homePageSlug.acf.features}
+				HomepageFeaturesHighlightNodes={homePageFeaturesHighlightNodes}
+				HomepageAddonsNodes={homePageAddonsNodes}
+			/>
 		</Layout>
 	);
 
@@ -76,13 +102,25 @@ export default function Home({
 export async function getStaticProps() {
 	const seoSettingSlug = await getWpPagesSlug("seosettings");
 	const homePageSlug = await getWpPagesSlug("home");
+	const generalSlug = await getWpPagesSlug("general");
 	const generalSettingSlug = await getWpPagesSlug("generalsettings");
+	const homePageFeaturesNodes = await getCPTFeatures();
+	const homePageServicesNodes = await getCPTServices();
+	const homePageAboutProjectsNodes = await getCPTAboutProjects();
+	const homePageFeaturesHighlightNodes = await getCPTHighlightFeatures();
+	const homePageAddonsNodes = await getCPTAddons();
 
 	return {
 		props: {
 			seoSettingSlug,
 			homePageSlug,
 			generalSettingSlug,
+			homePageFeaturesNodes,
+			homePageServicesNodes,
+			homePageAboutProjectsNodes,
+			homePageFeaturesHighlightNodes,
+			homePageAddonsNodes,
+			generalSlug,
 		},
 		revalidate: 10, // In seconds
 	};

@@ -9,7 +9,11 @@ import CallToAction from "../components/CallToAction";
 import Solutions from "../components/About/Solutions";
 import Goals from "../components/About/Goals";
 import Achievements from "../components/About/Achievements";
-import { getWpPagesSlug } from "../utils/wordpress";
+import {
+	getWpPagesSlug,
+	getCPTGoals,
+	getCPTAchievements,
+} from "../utils/wordpress";
 
 // const myGraphql = graphql`
 // 	{
@@ -24,7 +28,14 @@ import { getWpPagesSlug } from "../utils/wordpress";
 // 	}
 // `;
 
-const AboutPage = ({ seoSettingSlug, aboutPageSlug, generalSettingSlug }) => {
+const AboutPage = ({
+	seoSettingSlug,
+	aboutPageSlug,
+	generalSettingSlug,
+	aboutPageGoalsNodes,
+	aboutPageAchievementsNodes,
+	generalSlug,
+}) => {
 	const { sitemetadata } = seoSettingSlug.acf;
 	const { sitemetatitle, sitemetadescription } =
 		aboutPageSlug.acf.aboutpage_seo;
@@ -34,7 +45,7 @@ const AboutPage = ({ seoSettingSlug, aboutPageSlug, generalSettingSlug }) => {
 	// } = useStaticQuery(myGraphql);
 
 	return (
-		<Layout>
+		<Layout Banner={generalSlug.acf.banner}>
 			<Seo
 				// title="title"
 				// description="description"
@@ -46,10 +57,16 @@ const AboutPage = ({ seoSettingSlug, aboutPageSlug, generalSettingSlug }) => {
 				sitetitle={site_title}
 			/>
 			<Banner pages={"about"} />
-			<Solutions />
-			<Goals />
-			<Achievements />
-			<CallToAction />
+			<Solutions AboutpageSolutions={aboutPageSlug.acf.solutions} />
+			<Goals
+				AboutpageGoals={aboutPageSlug.acf.goals}
+				AboutPageGoalsNodes={aboutPageGoalsNodes}
+			/>
+			<Achievements AboutPageAchievementsNodes={aboutPageAchievementsNodes} />
+			<CallToAction
+				ctaData={generalSlug}
+				ctaGeneralSettings={generalSettingSlug}
+			/>
 		</Layout>
 	);
 };
@@ -60,12 +77,18 @@ export async function getStaticProps() {
 	const seoSettingSlug = await getWpPagesSlug("seosettings");
 	const aboutPageSlug = await getWpPagesSlug("about");
 	const generalSettingSlug = await getWpPagesSlug("generalsettings");
+	const aboutPageGoalsNodes = await getCPTGoals();
+	const aboutPageAchievementsNodes = await getCPTAchievements();
+	const generalSlug = await getWpPagesSlug("general");
 
 	return {
 		props: {
 			seoSettingSlug,
 			aboutPageSlug,
 			generalSettingSlug,
+			aboutPageGoalsNodes,
+			aboutPageAchievementsNodes,
+			generalSlug,
 		},
 		revalidate: 10, // In seconds
 	};

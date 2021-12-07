@@ -60,7 +60,7 @@ export async function getCPTAchievements() {
 }
 
 export async function getCPTOffers() {
-	const cptOffersRes = await fetch(BASE_URL + "/");
+	const cptOffersRes = await fetch(BASE_URL + "/offer");
 	const cptOffers = await cptOffersRes.json();
 	return cptOffers;
 }

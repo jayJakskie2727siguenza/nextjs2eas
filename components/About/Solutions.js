@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 // import { graphql, useStaticQuery } from "gatsby";
 // import Image from "gatsby-image";
 
@@ -29,18 +30,17 @@ import defaultImage from "../../images/defaultImages.png";
 // 	}
 // `;
 
-const Solutions = () => {
+const Solutions = ({ AboutpageSolutions }) => {
 	// const { AboutpageSolutions } = useStaticQuery(myGraphql);
-
 	return (
 		<section className="about__solutions padding--sections container">
 			<div className="about__solutions--content">
 				<h2 className="about__solutions--content--heading">
-					{/* {AboutpageSolutions.aboutpage_cf.solutions?.heading} */}
+					{AboutpageSolutions.heading}
 					{/* We Provide Online Accounting Solutions For Your Business! */}
 				</h2>
 				<p className="about__solutions--content--description">
-					{/* {AboutpageSolutions.aboutpage_cf.solutions?.description1} */}
+					{AboutpageSolutions.description1}
 					{/* Running a business can be hard and overwhelming. Most businesses fail
 					due to poor financial management without proper accounting and
 					taxation system. We`ve been there too, and solutions are our
@@ -51,24 +51,23 @@ const Solutions = () => {
 				</p>
 
 				<h2 className="about__solutions--content--subheading">
-					{/* {AboutpageSolutions.aboutpage_cf.solutions?.subheading} */}
+					{AboutpageSolutions.subheading}
 					{/* What We Do? */}
 				</h2>
 				<p className="about__solutions--content--description">
-					{/* {AboutpageSolutions.aboutpage_cf.solutions?.description2} */}
+					{AboutpageSolutions.description2}
 					{/* We help you from SETUP, TRAINING, CONSULTATION and SUPPORT to move
 					your finances online and reduce your accounting and taxing paperworks. */}
 				</p>
 			</div>
 			<div className="about__solutions--imgWrapper">
-				{/* {AboutpageSolutions.aboutpage_cf.solutions.image ? (
+				{AboutpageSolutions.image ? (
 					<Image
-						fluid={
-							AboutpageSolutions.aboutpage_cf.solutions.image.localFile
-								.childImageSharp.fluid
-						}
+						src={AboutpageSolutions.image.url}
+						layout="fill"
+						objectFit="contain"
 						className="about__solutions--img"
-						alt={AboutpageSolutions.aboutpage_cf.solutions.image.altText}
+						alt="bahay renta"
 					/>
 				) : (
 					<img
@@ -76,7 +75,7 @@ const Solutions = () => {
 						className="about__solutions--img"
 						alt="defaultImage"
 					/>
-				)} */}
+				)}
 			</div>
 		</section>
 	);

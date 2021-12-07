@@ -7,7 +7,11 @@ import Banner from "../components/Banner";
 import CallToAction from "../components/CallToAction";
 import Offer from "../components/Services/Offer";
 import ListsOfOffer from "../components/Services/ListsOfOffer";
-import { getWpPagesSlug } from "../utils/wordpress";
+import {
+	getWpPagesSlug,
+	getCPTOffers,
+	getCPTAcctngTaxations,
+} from "../utils/wordpress";
 
 // const myGraphql = graphql`
 // 	{
@@ -26,6 +30,10 @@ const ServicesPage = ({
 	seoSettingSlug,
 	servicesPageSlug,
 	generalSettingSlug,
+	generalSlug,
+	servicesOffersNodes,
+	acctngTxationNodes,
+	servicesSlug,
 }) => {
 	const { sitemetadata } = seoSettingSlug.acf;
 	const { sitemetatitle, sitemetadescription } =
@@ -34,9 +42,8 @@ const ServicesPage = ({
 	// const {
 	// 	wpPage: { services_cf },
 	// } = useStaticQuery(myGraphql);
-
 	return (
-		<Layout>
+		<Layout Banner={generalSlug.acf.banner}>
 			<Seo
 				title={sitemetatitle}
 				description={sitemetadescription}
@@ -44,9 +51,18 @@ const ServicesPage = ({
 				sitetitle={site_title}
 			/>
 			<Banner pages={"services"} />
-			<Offer />
-			<ListsOfOffer />
-			<CallToAction />
+			<Offer
+				ServicePageOffer={servicesPageSlug.acf}
+				ServiceOfferNodes={servicesOffersNodes}
+			/>
+			<ListsOfOffer
+				listHeading={servicesSlug.acf.list_heading}
+				listOfferNodes={acctngTxationNodes}
+			/>
+			<CallToAction
+				ctaData={generalSlug}
+				ctaGeneralSettings={generalSettingSlug}
+			/>
 		</Layout>
 	);
 };
@@ -57,12 +73,20 @@ export async function getStaticProps() {
 	const seoSettingSlug = await getWpPagesSlug("seosettings");
 	const servicesPageSlug = await getWpPagesSlug("services");
 	const generalSettingSlug = await getWpPagesSlug("generalsettings");
+	const generalSlug = await getWpPagesSlug("general");
+	const servicesOffersNodes = await getCPTOffers();
+	const acctngTxationNodes = await getCPTAcctngTaxations();
+	const servicesSlug = await getWpPagesSlug("services");
 
 	return {
 		props: {
 			seoSettingSlug,
 			servicesPageSlug,
 			generalSettingSlug,
+			generalSlug,
+			servicesOffersNodes,
+			acctngTxationNodes,
+			servicesSlug,
 		},
 		revalidate: 10, // In seconds
 	};

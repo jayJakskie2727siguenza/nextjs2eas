@@ -37,7 +37,7 @@ import { HomeContext } from "../components/Context/General_Context";
 // 	}
 // `;
 
-const Header = () => {
+const Header = ({ Banner }) => {
 	// const {
 	// 	Banner: { general_cf: BannerGraphql },
 	// 	Contact,
@@ -60,13 +60,13 @@ const Header = () => {
 				<div className="navBar__header--wrapper container">
 					<Link href="/" passHref>
 						<div className="navBar__header--imgWrapper">
-							{/* <Image
+							<Image
 								className="navBar__header--img"
-								fluid={
-									BannerGraphql.banner.image.localFile.childImageSharp.fluid
-								}
-								alt={BannerGraphql.banner.image.altText}
-							/> */}
+								src={Banner.image.url}
+								layout="fill"
+								objectFit="cover"
+								alt="bahay renta"
+							/>
 							{/* <img className="navBar__header--img" src={imgLogo} alt="2eas" /> */}
 						</div>
 					</Link>

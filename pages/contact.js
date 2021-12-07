@@ -26,6 +26,7 @@ const ContactPage = ({
 	seoSettingSlug,
 	contactPageSlug,
 	generalSettingSlug,
+	generalSlug,
 }) => {
 	const { sitemetadata } = seoSettingSlug.acf;
 	const { sitemetatitle, sitemetadescription } =
@@ -36,7 +37,7 @@ const ContactPage = ({
 	// } = useStaticQuery(myGraphql);
 
 	return (
-		<Layout>
+		<Layout Banner={generalSlug.acf.banner}>
 			<Seo
 				title={sitemetatitle}
 				description={sitemetadescription}
@@ -44,9 +45,15 @@ const ContactPage = ({
 				sitetitle={site_title}
 			/>
 			<Banner pages={"contact"} />
-			<Content />
+			<Content
+				Contactpage={contactPageSlug.acf}
+				ContactPageGeneralSettings={generalSettingSlug.acf}
+			/>
 
-			<CallToAction />
+			<CallToAction
+				ctaData={generalSlug}
+				ctaGeneralSettings={generalSettingSlug}
+			/>
 		</Layout>
 	);
 };
@@ -57,12 +64,14 @@ export async function getStaticProps() {
 	const seoSettingSlug = await getWpPagesSlug("seosettings");
 	const contactPageSlug = await getWpPagesSlug("contact");
 	const generalSettingSlug = await getWpPagesSlug("generalsettings");
+	const generalSlug = await getWpPagesSlug("general");
 
 	return {
 		props: {
 			seoSettingSlug,
 			contactPageSlug,
 			generalSettingSlug,
+			generalSlug,
 		},
 		revalidate: 10, // In seconds
 	};

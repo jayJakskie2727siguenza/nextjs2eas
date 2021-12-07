@@ -22,12 +22,12 @@ import gif2 from "../../images/messages.gif";
 // 				}
 // 				address
 // 				email
-// 			}
+// 			}`
 // 		}
 // 	}
 // `;
 
-const Content = () => {
+const Content = ({ Contactpage, ContactPageGeneralSettings }) => {
 	// const { Contactpage, ContactPageGeneralSettings } = useStaticQuery(myGraphql);
 
 	// const formspree = "https://formspree.io/projects/1560816072481832146";
@@ -126,29 +126,28 @@ const Content = () => {
 				<div className="contact__content--info">
 					<div className="contact__content--info--wrapper">
 						<h2 className="contact__content--info--heading">
-							{/* {Contactpage.contactpage_cf?.heading} */}
+							{Contactpage.heading}
 							{/* Contact Us */}
 						</h2>
 						<h2 className="contact__content--info--subheading">
-							{/* {ContactPageGeneralSettings.general_settings_cf?.contact
-								.cellphone &&
-								`+${ContactPageGeneralSettings.general_settings_cf?.contact.cellphone}`} */}
+							{ContactPageGeneralSettings.contact.cellphone &&
+								`+${ContactPageGeneralSettings.contact.cellphone}`}
 						</h2>
 					</div>
 					<p className="contact__content--info--address">
-						{/* {ContactPageGeneralSettings.general_settings_cf?.address} */}
+						{ContactPageGeneralSettings.address}
 					</p>
 					<p className="contact__content--info--email">
-						{/* {ContactPageGeneralSettings.general_settings_cf?.email} */}
+						{ContactPageGeneralSettings.email}
 					</p>
 				</div>
 				<div className="contact__content--cta">
 					<h2 className="contact__content--cta--heading">
-						{/* {Contactpage.contactpage_cf.form?.heading} */}
+						{Contactpage.form.heading}
 						{/* We Love To Hear From You */}
 					</h2>
 					<p className="contact__content--cta--info">
-						{/* {Contactpage.contactpage_cf.form?.subheading} */}
+						{Contactpage.form.subheading}
 						{/* Please call or email contact form and we will be happy to assist */}
 						you.
 					</p>

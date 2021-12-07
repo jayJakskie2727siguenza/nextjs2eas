@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 // import { useStaticQuery, graphql } from "gatsby";
 // import Image from "gatsby-image";
 
@@ -67,7 +68,7 @@ import defaultImages from "../../images/defaultImages.png";
 // 	}
 // `;
 
-const About = ({ HomepageAbout }) => {
+const About = ({ HomepageAbout, homePageAboutProjectsNodes }) => {
 	// const { HomepageAbout, HomepageAboutNodes } = useStaticQuery(myGraphql);
 
 	return (
@@ -76,11 +77,11 @@ const About = ({ HomepageAbout }) => {
 				<div className="home__about--solutions--row">
 					<div className="home__about--solutions--row--content">
 						<h2 className="home__about--solutions--row--content--heading">
-							{/* {HomepageAbout.homepage_cf.about.heading1} */}
+							{HomepageAbout.heading1}
 							{/* Solutions That`S Our Business */}
 						</h2>
 						<p className="home__about--solutions--row--content--description">
-							{/* {HomepageAbout.homepage_cf.about.description1} */}
+							{HomepageAbout.description1}
 							{/* We, your trusted online professional accountants, are proudly
 							serving local businesses and E-commerce businesses in the
 							Philippines. We make accounting, bookkeeping, and taxation as
@@ -88,14 +89,13 @@ const About = ({ HomepageAbout }) => {
 						</p>
 					</div>
 					<div className="home__about--solutions--row--imgWrapper">
-						{/* {HomepageAbout.homepage_cf.about.image1 ? (
+						{HomepageAbout.image1 ? (
 							<Image
 								className="home__about--solutions--row--img"
-								fluid={
-									HomepageAbout.homepage_cf.about.image1.localFile
-										.childImageSharp.fluid
-								}
-								alt={HomepageAbout.homepage_cf.about.image1.altText}
+								src={HomepageAbout.image1.url}
+								layout="fill"
+								objectFit="cover"
+								alt="bahay renta"
 							/>
 						) : (
 							<img
@@ -103,19 +103,18 @@ const About = ({ HomepageAbout }) => {
 								src={defaultImages}
 								alt="project2eas"
 							/>
-						)} */}
+						)}
 					</div>
 				</div>
 				<div className="home__about--solutions--row">
 					<div className="home__about--solutions--row--imgWrapper">
-						{/* {HomepageAbout.homepage_cf.about.image2 ? (
+						{HomepageAbout.image2 ? (
 							<Image
 								className="home__about--solutions--row--img"
-								fluid={
-									HomepageAbout.homepage_cf.about.image2.localFile
-										.childImageSharp.fluid
-								}
-								alt={HomepageAbout.homepage_cf.about.image2.altText}
+								src={HomepageAbout.image2.url}
+								layout="fill"
+								objectFit="cover"
+								alt="bahay renta"
 							/>
 						) : (
 							<img
@@ -123,15 +122,15 @@ const About = ({ HomepageAbout }) => {
 								src={defaultImages}
 								alt="project2eas"
 							/>
-						)} */}
+						)}
 					</div>
 					<div className="home__about--solutions--row--content">
 						<h2 className="home__about--solutions--row--content--heading">
-							{/* {HomepageAbout.homepage_cf.about.heading2} */}
+							{HomepageAbout.heading2}
 							{/* Your Business Accountants In The Top End! */}
 						</h2>
 						<p className="home__about--solutions--row--content--description">
-							{/* {HomepageAbout.homepage_cf.about.description2} */}
+							{HomepageAbout.description2}
 							{/* Our dedicated team of CPAs has over 10 years of experience
 							combined and have a wide range of expertise to help you with all
 							your accounting needs, whatever they may be. You are in good hands
@@ -144,11 +143,11 @@ const About = ({ HomepageAbout }) => {
 			<div className="home__about--overviews">
 				<div className="home__about--overviews--top">
 					<h2 className="home__about--overviews--top--heading">
-						{/* {HomepageAbout.homepage_cf.overviews?.heading} */}
+						{HomepageAbout.heading}
 						{/* Our Project Overviews */}
 					</h2>
 					<p className="home__about--overviews--top--subheading">
-						{/* {HomepageAbout.homepage_cf.overviews?.subheading} */}
+						{HomepageAbout.subheading}
 						{/* professionals can train you and your staff from setup, training,
 						testing, finalization and go live on accounting system and tex
 						system so that you get the most out of it. */}
@@ -156,32 +155,32 @@ const About = ({ HomepageAbout }) => {
 				</div>
 				<div className="home__about--projects">
 					<ul className="home__about--projects--lists">
-						{/* {HomepageAboutNodes.nodes.map(
-							({ homepage_aboutprojects_cpt: itm }, indx) => {
-								return (
-									<li key={`${indx}`} className="home__about--projects--items">
-										<h2 className="home__about--projects--items--heading">
-											{itm.heading}
-										</h2>
-										<div className="home__about--projects--items--imgWrapper">
-											{itm.image ? (
-												<Image
-													className="home__about--projects--items--img"
-													fluid={itm.image.localFile.childImageSharp.fluid}
-													alt={itm.image.altText}
-												/>
-											) : (
-												<img
-													className="home__about--projects--items--img"
-													src={defaultImages}
-													alt="defaultImages"
-												/>
-											)}
-										</div>
-									</li>
-								);
-							}
-						)} */}
+						{homePageAboutProjectsNodes.map(({ acf: itm }, indx) => {
+							return (
+								<li key={`${indx}`} className="home__about--projects--items">
+									<h2 className="home__about--projects--items--heading">
+										{itm.heading}
+									</h2>
+									<div className="home__about--projects--items--imgWrapper">
+										{itm.image ? (
+											<Image
+												className="home__about--projects--items--img"
+												src={itm.image.url}
+												layout="fill"
+												objectFit="cover"
+												alt="bahay renta"
+											/>
+										) : (
+											<img
+												className="home__about--projects--items--img"
+												src={defaultImages}
+												alt="defaultImages"
+											/>
+										)}
+									</div>
+								</li>
+							);
+						})}
 					</ul>
 				</div>
 			</div>

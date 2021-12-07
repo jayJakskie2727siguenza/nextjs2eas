@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 // import { Link, graphql, useStaticQuery } from "gatsby";
 // import Image from "gatsby-image";
 
 import ArrowRightSLineIcon from "remixicon-react/ArrowRightSLineIcon";
 
-import icon1 from "../../images/about-icon1-2.png";
+// import icon1 from "../../images/about-icon1-2.png";
 import defaultImage from "../../images/defaultImages.png";
 // import img1 from "../../images/ipod-mockup-xero.png";
 
@@ -52,7 +53,7 @@ import defaultImage from "../../images/defaultImages.png";
 // 	}
 // `;
 
-const Why = ({ HomepageWhy }) => {
+const Why = ({ HomepageWhy, homePageFeaturesNodes }) => {
 	// const { HomepageWhy, HomepageNode } = useStaticQuery(myGraphql);
 
 	return (
@@ -66,53 +67,51 @@ const Why = ({ HomepageWhy }) => {
 			</div>
 			<div className="home__why--features">
 				<ul className="home__why--features--lists">
-					{/* {HomepageNode.nodes
-						.reverse()
-						.map(({ homepage_features_cpt: itm }, indx) => {
-							return (
-								<li
-									key={`${itm}${indx}`}
-									className="home__why--features--items"
-								>
-									<div className="home__why--features--items--imgWrapper">
-										{itm.image ? (
-											<Image
-												className="home__why--features--content--img"
-												fluid={itm.image.localFile.childImageSharp.fluid}
-												alt={itm.image.altText}
-											/>
-										) : (
-											<img
-												className="home__why--features--items--img"
-												src={defaultImage}
-												alt="defaultImage"
-											/>
-										)}
-
-									</div>
-									<div className="home__why--features--items--content">
-										<h2 className="home__why--features--items--content--heading">
-											{itm.heading}
-										</h2>
-										<p className="home__why--features--items--content--description">
-											{itm.description}
-										</p>
-									</div>
-								</li>
-							);
-						})} */}
+					{homePageFeaturesNodes.reverse().map(({ acf: itm }, indx) => {
+						return (
+							<li
+								key={`${itm.image.ID}${indx}`}
+								className="home__why--features--items"
+							>
+								<div className="home__why--features--items--imgWrapper">
+									{itm.image ? (
+										<Image
+											className="home__why--features--content--img"
+											src={itm.image.url}
+											layout="fill"
+											alt="bahay renta image"
+											objectFit="cover"
+										/>
+									) : (
+										<img
+											className="home__why--features--items--img"
+											src={defaultImage}
+											alt="defaultImage"
+										/>
+									)}
+								</div>
+								<div className="home__why--features--items--content">
+									<h2 className="home__why--features--items--content--heading">
+										{itm.heading}
+									</h2>
+									<p className="home__why--features--items--content--description">
+										{itm.description}
+									</p>
+								</div>
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 			<div className="home__why--features--content">
 				<div className="home__why--features--content--imgWrapper">
-					{/* {HomepageWhy.homepage_cf.why.image ? (
+					{HomepageWhy.image ? (
 						<Image
 							className="home__why--features--content--img"
-							fluid={
-								HomepageWhy.homepage_cf.why.image.localFile.childImageSharp
-									.fluid
-							}
-							alt={HomepageWhy.homepage_cf.why.image.altText}
+							src={HomepageWhy.image.url}
+							layout="fill"
+							alt="bahay renta image"
+							objectFit="cover"
 						/>
 					) : (
 						<img
@@ -120,7 +119,7 @@ const Why = ({ HomepageWhy }) => {
 							src={defaultImage}
 							alt="defaultImage"
 						/>
-					)} */}
+					)}
 				</div>
 				<div className="home__why--features--content--wrapper">
 					<div className="home__why--features--content--description">

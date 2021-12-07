@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 // import { graphql, useStaticQuery } from "gatsby";
 // import Image from "gatsby-image";
 
@@ -55,10 +56,13 @@ import defaultImages from "../../images/defaultImages.png";
 // 	}
 // `;
 
-const Features = ({ HomepageFeatures }) => {
+const Features = ({
+	HomepageFeatures,
+	HomepageFeaturesHighlightNodes,
+	HomepageAddonsNodes,
+}) => {
 	const [imgDivData, setImgDivData] = useState([]);
 	const [counter, setCounter] = useState(1);
-
 	// const { HomepageFeatures, HomepageFeaturesNodes, HomepageAddsOnNodes } =
 	// 	useStaticQuery(myGraphql);
 
@@ -81,9 +85,9 @@ const Features = ({ HomepageFeatures }) => {
 		return data;
 	};
 
-	// useEffect(() => {
-	// 	setImgDivData(groupingImagesFunctionalities(HomepageAddsOnNodes.nodes, 4));
-	// }, [HomepageAddsOnNodes]);
+	useEffect(() => {
+		setImgDivData(groupingImagesFunctionalities(HomepageAddonsNodes, 4));
+	}, [HomepageAddonsNodes]);
 
 	// setting counter in addOns
 	useEffect(() => {
@@ -106,11 +110,11 @@ const Features = ({ HomepageFeatures }) => {
 		<section className="home__features container padding--sections">
 			<div className="home__features--top">
 				<h2 className="home__features--top--heading">
-					{/* {HomepageFeatures.homepage_cf?.features.heading} */}
+					{HomepageFeatures.heading}
 					{/* POPULAR HOME FEATURES TO RUN EVERY PART OF YOUR BUSINESS */}
 				</h2>
 				<p className="home__features--top--subheading">
-					{/* {HomepageFeatures.homepage_cf?.features.subheading} */}
+					{HomepageFeatures.subheading}
 					{/* Accounting Software with all the time-saving tools you need to grow
 					your business. Always secure and reliable and our experts are here to
 					support you 24/7. */}
@@ -118,49 +122,46 @@ const Features = ({ HomepageFeatures }) => {
 			</div>
 			<div className="home__features--highlights">
 				<ul className="home__features--highlights--lists">
-					{/* {HomepageFeaturesNodes.nodes.map(
-						({ homepage_highlightfeatures_cpt: itm }, indx) => {
-							return (
-								<li
-									key={`${indx}`}
-									className="home__features--highlights--items"
-								>
-									<div className="home__features--highlights--items--imgWrapper">
-										{itm.image ? (
-											<Image
-												className="home__features--highlights--items--img"
-												fluid={itm.image.localFile.childImageSharp.fluid}
-												alt={itm.altText}
-											/>
-										) : (
-											<img
-												className="home__features--highlights--items--img"
-												src={defaultImages}
-												alt="defaultImages"
-											/>
-										)}
-									</div>
-									<div className="home__features--highlights--items--content">
-										<h2 className="home__features--highlights--items--content--heading">
-											{itm?.heading}
-										</h2>
-										<p className="fewatures__highlights--items--content--description">
-											{itm?.description}
-										</p>
-									</div>
-								</li>
-							);
-						}
-					)} */}
+					{HomepageFeaturesHighlightNodes.map(({ acf: itm }, indx) => {
+						return (
+							<li key={`${indx}`} className="home__features--highlights--items">
+								<div className="home__features--highlights--items--imgWrapper">
+									{itm.image ? (
+										<Image
+											className="home__features--highlights--items--img"
+											src={itm.image?.url}
+											layout="fill"
+											objectFit="contain"
+											alt="bahay renta"
+										/>
+									) : (
+										<img
+											className="home__features--highlights--items--img"
+											src={defaultImages}
+											alt="defaultImages"
+										/>
+									)}
+								</div>
+								<div className="home__features--highlights--items--content">
+									<h2 className="home__features--highlights--items--content--heading">
+										{itm?.heading}
+									</h2>
+									<p className="fewatures__highlights--items--content--description">
+										{itm?.description}
+									</p>
+								</div>
+							</li>
+						);
+					})}
 				</ul>
 			</div>
 			<div className="home__features--highlights--addOns padding--sections">
 				<h2 className="home__features--highlights--addOns--heading">
-					{/* {HomepageFeatures.homepage_cf?.addons} */}
+					{HomepageFeatures.addons}
 					{/* other xero add-on we recommend for your business */}
 				</h2>
 				<div className="home__features--highlights--addOns--recommended">
-					{/* {imgDivData.map((itm, indx) => {
+					{imgDivData.map((itm, indx) => {
 						return (
 							<div
 								key={`${indx}`}
@@ -168,7 +169,7 @@ const Features = ({ HomepageFeatures }) => {
 									counter === indx + 1 ? `--show` : ``
 								}`}
 							>
-								{itm.map(({ homepage_addons_cpt: dataItm }, dataIndx) => {
+								{itm.map(({ acf: dataItm }, dataIndx) => {
 									return (
 										<div
 											key={`${dataIndx}`}
@@ -177,8 +178,10 @@ const Features = ({ HomepageFeatures }) => {
 											{dataItm.image ? (
 												<Image
 													className="home__features--highlights--addOns--recommended--img"
-													fluid={dataItm.image.localFile.childImageSharp.fluid}
-													alt={dataItm.image.altText}
+													src={dataItm.image.url}
+													layout="fill"
+													objectFit="contain"
+													alt="bahay renta"
 												/>
 											) : (
 												<img
@@ -192,7 +195,7 @@ const Features = ({ HomepageFeatures }) => {
 								})}
 							</div>
 						);
-					})} */}
+					})}
 				</div>
 			</div>
 		</section>

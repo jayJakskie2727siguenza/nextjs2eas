@@ -5,12 +5,12 @@ import Footer from "../components/Footer";
 import { GeneralContext } from "../components/Context/General_Context";
 import MobileNav from "../components/ComponentWrapper/MobileNav";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, Banner }) => {
 	return (
 		<GeneralContext>
 			<MobileNav />
 			<section className="layout">
-				<Header />
+				<Header Banner={Banner} />
 				{children}
 				<Footer />
 			</section>

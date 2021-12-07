@@ -44,7 +44,8 @@
 
 				&--imgWrapper {
 					width: 10rem;
-
+					position: relative;
+					height: 8rem;
 					@media (max-width: 1156px) {
 						width: 7rem;
 					}

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 // import { graphql, useStaticQuery, Link } from "gatsby";
 // import Image from "gatsby-image";
 
@@ -34,18 +35,24 @@ import defaultimage from "../../images/defaultImages.png";
 
 const Hero = ({ HomepageHero }) => {
 	// const { HomepageHero } = useStaticQuery(myGraphql);
-
+	// console.log(HomepageHero.image);
 	return (
 		<div className="home__hero">
 			<div className="home__hero--imgWrapper">
-				{/* {HomepageHero.homepage_cf.hero.image ? (
+				{/* <Image
+					className="home__hero--img"
+					src={HomepageHero.image.url}
+					layout="fill"
+					alt="bahay renta image"
+					objectFit="cover"
+				/> */}
+				{HomepageHero.image ? (
 					<Image
 						className="home__hero--img"
-						fluid={
-							HomepageHero.homepage_cf.hero.image.localFile.childImageSharp
-								.fluid
-						}
-						alt={HomepageHero.homepage_cf.hero.image.altText}
+						src={HomepageHero.image.url}
+						layout="fill"
+						alt="bahay renta image"
+						objectFit="cover"
 					/>
 				) : (
 					<img
@@ -53,19 +60,19 @@ const Hero = ({ HomepageHero }) => {
 						className="home__hero--img"
 						alt="default Images"
 					/>
-				)} */}
+				)}
 			</div>
 			<div className="home__hero--content container">
 				<div className="home__hero--content--description">
 					<h2 className="home__hero--content--description--title">
-						{/* {HomepageHero.homepage_cf.hero.heading ||
-							"no more struggling to your accounting and taxation problems!"} */}
+						{HomepageHero.heading ||
+							"no more struggling to your accounting and taxation problems!"}
 						{/* No More Struggling To Your Accounting And Taxation Problems! */}
 					</h2>
 					<p className="home__hero--content--description--subTitle">
-						{/* {HomepageHero.homepage_cf.hero.subheading ||
+						{HomepageHero.subheading ||
 							`fast, accurate, complete, quality accounting and taxation system for
-							small to medium business and e-commerce business`} */}
+							small to medium business and e-commerce business`}
 						{/* fast, accurate, complete, quality accounting and taxation system for
 						small to medium business and e-commerce business */}
 					</p>
@@ -74,7 +81,7 @@ const Hero = ({ HomepageHero }) => {
 					<Link href="/contact" passHref>
 						<button className="home__hero--content--cta--btn btn__primary btn">
 							<p className="home__hero--content--cta--text">
-								{/* {HomepageHero.homepage_cf.hero.button || "free consultation"} */}
+								{HomepageHero.button || "free consultation"}
 								{/* free consultation */}
 							</p>
 							{/* <div className="home__hero--content--cta--iconWrapper">
