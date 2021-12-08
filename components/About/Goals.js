@@ -58,9 +58,11 @@ const Goals = ({ AboutpageGoals, AboutPageGoalsNodes }) => {
 												alt="bahay renta"
 											/>
 										) : (
-											<img
+											<Image
 												src={defaultImages}
 												className="about__goals--content--items--img"
+												layout="fill"
+												objectFit="contain"
 												alt="defaultImages"
 											/>
 										)}

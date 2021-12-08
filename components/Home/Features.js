@@ -135,9 +135,11 @@ const Features = ({
 											alt="bahay renta"
 										/>
 									) : (
-										<img
+										<Image
 											className="home__features--highlights--items--img"
 											src={defaultImages}
+											layout="fill"
+											objectFit="contain"
 											alt="defaultImages"
 										/>
 									)}
@@ -184,8 +186,10 @@ const Features = ({
 													alt="bahay renta"
 												/>
 											) : (
-												<img
+												<Image
 													src={defaultImages}
+													layout="fill"
+													objectFit="contain"
 													className="home__features--highlights--addOns--recommended--img"
 													alt="defaultImages"
 												/>

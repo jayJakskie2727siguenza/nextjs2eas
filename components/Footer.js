@@ -63,7 +63,7 @@ import defaultImage from "../images/defaultImages.png";
 // 	}
 // `;
 
-const Footer = () => {
+const Footer = ({ FooterData, FooterGenSetting }) => {
 	// const { FooterSection } = useStaticQuery(myGraphql);
 	const [telephoneNum, setTelephoneNum] = useState("");
 
@@ -143,36 +143,37 @@ const Footer = () => {
 					<div className="footer__left">
 						<Link href="/" passHref>
 							<div className="footer__left--imgWrapper">
-								{/* {FooterSection.general_cf.footer.image ? (
+								{FooterData.image ? (
 									<Image
 										className="footer__left--img"
-										fluid={
-											FooterSection.general_cf.footer.image?.localFile
-												.childImageSharp.fluid
-										}
-										alt={FooterSection.general_cf.footer.image?.altText}
+										src={FooterData.image.url}
+										layout="fill"
+										objectFit="contain"
+										alt="bahay renta"
 									/>
 								) : (
-									<img
+									<Image
 										src={defaultImage}
 										className="footer__left--img"
+										layout="fill"
+										objectFit="contain"
 										alt="defaultImage"
 									/>
-								)} */}
+								)}
 							</div>
 						</Link>
 
 						<div className="footer__left--content">
 							<p className="footer__left--content--description">
-								{/* {FooterSection.general_cf.footer?.description} */}
+								{FooterData.description}
 							</p>
 							<div className="footer__left--content--followUs">
 								<p className="footer__left--content--followUs--text">
 									follow us:
 								</p>
 								<div className="footer__left--content--followUs--socialMedia">
-									{/* <a
-										href={`${FooterSection.general_settings_cf.socialmedia?.facebook}`}
+									<a
+										href={`${FooterGenSetting.socialmedia.facebook}`}
 										target="_blank"
 										rel="noreferrer"
 										// href=""
@@ -182,7 +183,7 @@ const Footer = () => {
 										</div>
 									</a>
 									<a
-										href={`${FooterSection.general_settings_cf.socialmedia?.linkedin}`}
+										href={`${FooterGenSetting.socialmedia.linkedin}`}
 										target="_blank"
 										rel="noreferrer"
 										// href=""
@@ -190,7 +191,7 @@ const Footer = () => {
 										<div className="footer__left--content--followUs--socialMedia--iconWrapper">
 											<LinkedinFillIcon className="footer__left--content--followUs--socialMedia--icon" />
 										</div>
-									</a> */}
+									</a>
 								</div>
 							</div>
 						</div>
@@ -199,7 +200,7 @@ const Footer = () => {
 						<h2 className="footer__middle--heading">company address</h2>
 						<div className="footer__middle--content">
 							<ul className="footer__middle--content--lists">
-								{/* {FooterSection.general_settings_cf.address && (
+								{FooterGenSetting.address && (
 									<li className="footer__middle--content--items">
 										<div className="footer__middle--content--items--wrapper">
 											<div className="footer__middle--content--items--iconWrapper">
@@ -209,14 +210,13 @@ const Footer = () => {
 												/>
 											</div>
 											<address className="footer__middle--content--items--text">
-												{FooterSection.general_settings_cf?.address}
+												{FooterGenSetting.address}
 											</address>
 										</div>
 									</li>
-									////
-								)} */}
+								)}
 
-								{/* {FooterSection.general_settings_cf.contact.telephone && (
+								{FooterGenSetting.contact.telephone && (
 									<li className="footer__middle--content--items">
 										<a href={`tel:(083) ${telephoneNum}`}>
 											<div className="footer__middle--content--items--wrapper">
@@ -227,19 +227,17 @@ const Footer = () => {
 													/>
 												</div>
 												<p className="footer__middle--content--items--text">
-													{FooterSection.general_settings_cf.contact
-														.telephone && `(083) ${telephoneNum}`}
+													{FooterGenSetting.contact.telephone &&
+														`(083) ${telephoneNum}`}
 												</p>
 											</div>
 										</a>
 									</li>
-								)} */}
+								)}
 
-								{/* {FooterSection.general_settings_cf.contact.cellphone && (
+								{FooterGenSetting.contact.cellphone && (
 									<li className="footer__middle--content--items">
-										<a
-											href={`tel:+${FooterSection.general_settings_cf.contact?.cellphone}`}
-										>
+										<a href={`tel:+${FooterGenSetting.contact.cellphone}`}>
 											<div className="footer__middle--content--items--wrapper">
 												<div className="footer__middle--content--items--iconWrapper">
 													<FontAwesomeIcon
@@ -248,15 +246,14 @@ const Footer = () => {
 													/>
 												</div>
 												<p className="footer__middle--content--items--text">
-													{FooterSection.general_settings_cf.contact
-														.cellphone &&
-														`+${FooterSection.general_settings_cf.contact.cellphone}`}
+													{FooterGenSetting.contact.cellphone &&
+														`+${FooterGenSetting.contact.cellphone}`}
 												</p>
 											</div>
 										</a>
 									</li>
-								)} */}
-								{/* {FooterSection.general_settings_cf.email && (
+								)}
+								{FooterGenSetting.email && (
 									<li className="footer__middle--content--items">
 										<a href="mailto:solutions.2eas@gmail.com">
 											<div className="footer__middle--content--items--wrapper">
@@ -267,22 +264,20 @@ const Footer = () => {
 													/>
 												</div>
 												<p className="footer__middle--content--items--text">
-													{FooterSection.general_settings_cf?.email}
+													{FooterGenSetting.email}
 												</p>
 											</div>
 										</a>
 									</li>
-								)} */}
+								)}
 							</ul>
 						</div>
 					</div>
 					<div className="footer__right">
-						<h2 className="footer__right--heading">
-							{/* {FooterSection.general_cf.footer.cta?.text} */}
-						</h2>
+						<h2 className="footer__right--heading">{FooterData.cta.heading}</h2>
 						<div className="footer__right--content">
 							<p className="footer__right--content--text">
-								{/* {FooterSection.general_cf.footer.cta?.description} */}
+								{FooterData.cta.description}
 							</p>
 							<div className="footer__right--content--cta">
 								<div className="footer__right--content--cta--inputWrapper">

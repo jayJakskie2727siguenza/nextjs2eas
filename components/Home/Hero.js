@@ -55,9 +55,11 @@ const Hero = ({ HomepageHero }) => {
 						objectFit="cover"
 					/>
 				) : (
-					<img
+					<Image
 						src={defaultimage}
 						className="home__hero--img"
+						layout="fill"
+						objectFit="cover"
 						alt="default Images"
 					/>
 				)}

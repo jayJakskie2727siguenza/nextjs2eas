@@ -80,9 +80,11 @@ const Offer = ({ ServicePageOffer, ServiceOfferNodes }) => {
 											alt="bahay renta"
 										/>
 									) : (
-										<img
+										<Image
 											src={defaultImages}
 											className="services__offer--items--content--img"
+											layout="fill"
+											objectFit="contain"
 											alt="defaultImages"
 										/>
 									)}

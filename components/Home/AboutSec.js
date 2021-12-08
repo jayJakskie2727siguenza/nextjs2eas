@@ -98,9 +98,11 @@ const About = ({ HomepageAbout, homePageAboutProjectsNodes }) => {
 								alt="bahay renta"
 							/>
 						) : (
-							<img
+							<Image
 								className="home__about--solutions--row--img"
 								src={defaultImages}
+								layout="fill"
+								objectFit="cover"
 								alt="project2eas"
 							/>
 						)}
@@ -117,9 +119,11 @@ const About = ({ HomepageAbout, homePageAboutProjectsNodes }) => {
 								alt="bahay renta"
 							/>
 						) : (
-							<img
+							<Image
 								className="home__about--solutions--row--img"
 								src={defaultImages}
+								layout="fill"
+								objectFit="cover"
 								alt="project2eas"
 							/>
 						)}
@@ -171,9 +175,11 @@ const About = ({ HomepageAbout, homePageAboutProjectsNodes }) => {
 												alt="bahay renta"
 											/>
 										) : (
-											<img
+											<Image
 												className="home__about--projects--items--img"
 												src={defaultImages}
+												layout="fill"
+												objectFit="cover"
 												alt="defaultImages"
 											/>
 										)}

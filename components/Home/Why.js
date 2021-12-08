@@ -83,9 +83,11 @@ const Why = ({ HomepageWhy, homePageFeaturesNodes }) => {
 											objectFit="cover"
 										/>
 									) : (
-										<img
+										<Image
 											className="home__why--features--items--img"
 											src={defaultImage}
+											layout="fill"
+											objectFit="cover"
 											alt="defaultImage"
 										/>
 									)}
@@ -114,9 +116,11 @@ const Why = ({ HomepageWhy, homePageFeaturesNodes }) => {
 							objectFit="cover"
 						/>
 					) : (
-						<img
+						<Image
 							className="home__why--features--content--img"
 							src={defaultImage}
+							layout="fill"
+							objectFit="cover"
 							alt="defaultImage"
 						/>
 					)}

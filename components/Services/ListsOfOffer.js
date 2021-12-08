@@ -25,7 +25,6 @@ import { faCheck } from "@fortawesome/fontawesome-free-solid";
 const ListsOfOffer = ({ listOfferNodes, listHeading }) => {
 	// const { ServicepageListsOffer, ServicepageListsOfferNodes } =
 	// 	useStaticQuery(myGraphql);
-	console.log(listHeading);
 	return (
 		<section className="services__listWrapper container padding--sections">
 			<h2 className="services__listWrapper--heading">

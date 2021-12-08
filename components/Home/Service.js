@@ -66,9 +66,11 @@ const Service = ({ HomepageServices, homePageServicesNodes }) => {
 												alt="bahay renta"
 											/>
 										) : (
-											<img
+											<Image
 												className="home__services__content--items--img"
 												src={defaultImages}
+												layout="fill"
+												objectFit="cover"
 												alt="defaultImages"
 											/>
 										)}

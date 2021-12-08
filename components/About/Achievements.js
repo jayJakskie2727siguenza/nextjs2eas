@@ -50,9 +50,11 @@ const Achievements = ({ AboutPageAchievementsNodes }) => {
 											alt="bahay renta"
 										/>
 									) : (
-										<img
+										<Image
 											src={defaultImages}
 											className="about__achievement--items--img"
+											layout="fill"
+											objectFit="contain"
 											alt="defaultImage"
 										/>
 									)}
