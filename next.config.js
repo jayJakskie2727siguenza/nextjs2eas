@@ -5,7 +5,10 @@ module.exports = {
 	reactStrictMode: true,
 	images: {
 		//enter the domain or subdomain where you have WordPress installed
-		domains: ["nextjs2eas.local"],
+		domains: [
+			"nextjs2eas.local",
+			"https://2eas-1-629268.ingress-baronn.easywp.com/graphql",
+		],
 	},
 };
 
