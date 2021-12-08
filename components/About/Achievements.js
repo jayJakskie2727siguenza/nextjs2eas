@@ -44,7 +44,7 @@ const Achievements = ({ AboutPageAchievementsNodes }) => {
 									{itm.image ? (
 										<Image
 											className="about__achievement--items--img"
-											src={itm.image.url}
+											src={itm.image?.url}
 											layout="fill"
 											objectFit="contain"
 											alt="bahay renta"

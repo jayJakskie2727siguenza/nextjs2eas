@@ -146,7 +146,7 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 								{FooterData.image ? (
 									<Image
 										className="footer__left--img"
-										src={FooterData.image.url}
+										src={FooterData.image?.url}
 										layout="fill"
 										objectFit="contain"
 										alt="bahay renta"

@@ -52,7 +52,7 @@ const Goals = ({ AboutpageGoals, AboutPageGoalsNodes }) => {
 										{itm.image ? (
 											<Image
 												className="about__goals--content--items--img"
-												src={itm.image.url}
+												src={itm.image?.url}
 												layout="fill"
 												objectFit="contain"
 												alt="bahay renta"

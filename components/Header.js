@@ -62,7 +62,7 @@ const Header = ({ Banner }) => {
 						<div className="navBar__header--imgWrapper">
 							<Image
 								className="navBar__header--img"
-								src={Banner.image.url}
+								src={Banner.image?.url}
 								layout="fill"
 								objectFit="cover"
 								alt="bahay renta"

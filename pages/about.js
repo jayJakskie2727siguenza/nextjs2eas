@@ -45,7 +45,11 @@ const AboutPage = ({
 	// } = useStaticQuery(myGraphql);
 
 	return (
-		<Layout Banner={generalSlug.acf.banner}>
+		<Layout
+			Banner={generalSlug.acf.banner}
+			FooterData={generalSlug.acf.footer}
+			FooterGenSetting={generalSettingSlug.acf}
+		>
 			<Seo
 				// title="title"
 				// description="description"

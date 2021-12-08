@@ -63,7 +63,7 @@ const Solutions = ({ AboutpageSolutions }) => {
 			<div className="about__solutions--imgWrapper">
 				{AboutpageSolutions.image ? (
 					<Image
-						src={AboutpageSolutions.image.url}
+						src={AboutpageSolutions.image?.url}
 						layout="fill"
 						objectFit="contain"
 						className="about__solutions--img"

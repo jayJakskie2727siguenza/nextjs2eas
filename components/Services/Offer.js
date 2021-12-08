@@ -74,7 +74,7 @@ const Offer = ({ ServicePageOffer, ServiceOfferNodes }) => {
 									{itm.image ? (
 										<Image
 											className="services__offer--items--content--img"
-											src={itm.image.url}
+											src={itm.image?.url}
 											layout="fill"
 											objectFit="contain"
 											alt="bahay renta"
