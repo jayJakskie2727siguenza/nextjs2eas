@@ -41,6 +41,7 @@ export default function Home({
 	// const jsxEvents = events.map((event) => {
 	// 	return <Event event={event} key={event.id} />;
 	// });
+	// console.log("object")
 
 	return (
 		<Layout
