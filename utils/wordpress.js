@@ -1,4 +1,6 @@
-const BASE_URL = "http://nextjs2eas.local/wp-json/wp/v2";
+// const BASE_URL = "http://nextjs2eas.local/wp-json/wp/v2";
+const BASE_URL =
+	"https://2eas-1-629268.ingress-baronn.easywp.com/wp-json/wp/v2";
 
 export async function getWpPages() {
 	const wpPagesRes = await fetch(BASE_URL + "/pages");
