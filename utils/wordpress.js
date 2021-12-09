@@ -38,7 +38,9 @@ export async function getCPTAboutProjects() {
 }
 
 export async function getCPTHighlightFeatures() {
-	const cptHighlightFeaturesRes = await fetch(BASE_URL + "/highlightfeatures");
+	const cptHighlightFeaturesRes = await fetch(
+		BASE_URL + "/highlightfeatures/?per%20page=100"
+	);
 	const cptHighlightFeatures = await cptHighlightFeaturesRes.json();
 	return cptHighlightFeatures;
 }

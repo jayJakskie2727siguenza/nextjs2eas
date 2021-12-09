@@ -15,6 +15,7 @@ import {
 	getCPTAboutProjects,
 	getCPTHighlightFeatures,
 	getCPTAddons,
+	// getCPTHighlightFeaturesNodes,
 } from "../utils/wordpress";
 
 export default function Home({
@@ -27,6 +28,7 @@ export default function Home({
 	homePageFeaturesHighlightNodes,
 	homePageAddonsNodes,
 	generalSlug,
+	// sampleNodes,
 }) {
 	const { sitemetadata } = seoSettingSlug.acf;
 	const { sitemetatitle, sitemetadescription } = homePageSlug.acf.homepage_seo;
@@ -41,7 +43,6 @@ export default function Home({
 	// const jsxEvents = events.map((event) => {
 	// 	return <Event event={event} key={event.id} />;
 	// });
-	// console.log("object")
 
 	return (
 		<Layout
@@ -75,6 +76,32 @@ export default function Home({
 			/>
 		</Layout>
 	);
+	// return (
+	// 	<>
+	// 		<Head>
+	// 			<title>Tech Blog</title>
+	// 			<meta
+	// 				name="description"
+	// 				content="Keep up to date with the latest trends in tech"
+	// 			/>
+	// 			<link rel="icon" href="/favicon.ico" />
+	// 			{/* You can add more metadata here, like open graph tags for social media, etc */}
+	// 		</Head>
+
+	// 		<div className="container pt-5">
+	// 			<h1 className="text-center pb-5">Tech Blog</h1>
+	// 			<div className="row">
+	// 				<div className="col-lg-8">
+	// 					<h2 className="pb-3">Our blog posts</h2>
+	// 				</div>
+	// 				<div className="col-lg-4">
+	// 					<h2 className="pb-3">Events</h2>
+	// 					{/* {jsxEvents} */}
+	// 				</div>
+	// 			</div>
+	// 		</div>
+	// 	</>
+	// );
 }
 
 export async function getStaticProps() {
@@ -87,6 +114,7 @@ export async function getStaticProps() {
 	const homePageAboutProjectsNodes = await getCPTAboutProjects();
 	const homePageFeaturesHighlightNodes = await getCPTHighlightFeatures();
 	const homePageAddonsNodes = await getCPTAddons();
+	// const sampleNodes = await getCPTHighlightFeaturesNodes();
 
 	return {
 		props: {
@@ -99,6 +127,7 @@ export async function getStaticProps() {
 			homePageFeaturesHighlightNodes,
 			homePageAddonsNodes,
 			generalSlug,
+			// sampleNodes,
 		},
 		revalidate: 10, // In seconds
 	};
