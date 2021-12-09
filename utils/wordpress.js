@@ -18,20 +18,22 @@ export async function getWpPagesSlug(slug) {
 }
 
 export async function getCPTFeatures() {
-	const cptFeaturesRes = await fetch(BASE_URL + "/features");
+	const cptFeaturesRes = await fetch(BASE_URL + "/features/?per%20page=100");
 	const cptFeatures = await cptFeaturesRes.json();
 
 	return cptFeatures;
 }
 
 export async function getCPTServices() {
-	const cptServicesRes = await fetch(BASE_URL + "/services");
+	const cptServicesRes = await fetch(BASE_URL + "/services/?per%20page=100");
 	const cptServices = await cptServicesRes.json();
 	return cptServices;
 }
 
 export async function getCPTAboutProjects() {
-	const cptAboutProjectsRes = await fetch(BASE_URL + "/aboutprojects");
+	const cptAboutProjectsRes = await fetch(
+		BASE_URL + "/aboutprojects/?per%20page=100"
+	);
 	const cptAboutProjects = await cptAboutProjectsRes.json();
 
 	return cptAboutProjects;
@@ -46,31 +48,35 @@ export async function getCPTHighlightFeatures() {
 }
 
 export async function getCPTAddons() {
-	const cptAddonsRes = await fetch(BASE_URL + "/addons");
+	const cptAddonsRes = await fetch(BASE_URL + "/addons/?per%20page=100");
 	const cptAddons = await cptAddonsRes.json();
 	return cptAddons;
 }
 
 export async function getCPTGoals() {
-	const cptGoalsRes = await fetch(BASE_URL + "/goals");
+	const cptGoalsRes = await fetch(BASE_URL + "/goals/?per%20page=100");
 	const cptGoals = cptGoalsRes.json();
 	return cptGoals;
 }
 
 export async function getCPTAchievements() {
-	const cptAchievementsRes = await fetch(BASE_URL + "/achievements");
+	const cptAchievementsRes = await fetch(
+		BASE_URL + "/achievements/?per%20page=100"
+	);
 	const cptAchievements = await cptAchievementsRes.json();
 	return cptAchievements;
 }
 
 export async function getCPTOffers() {
-	const cptOffersRes = await fetch(BASE_URL + "/offer");
+	const cptOffersRes = await fetch(BASE_URL + "/offer/?per%20page=100");
 	const cptOffers = await cptOffersRes.json();
 	return cptOffers;
 }
 
 export async function getCPTAcctngTaxations() {
-	const cptAcctngTaxationsRes = await fetch(BASE_URL + "/acctng_taxation");
+	const cptAcctngTaxationsRes = await fetch(
+		BASE_URL + "/acctng_taxation/?per%20page=100"
+	);
 	const cptAcctngTaxations = await cptAcctngTaxationsRes.json();
 	return cptAcctngTaxations;
 }
