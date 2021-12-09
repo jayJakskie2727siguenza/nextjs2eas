@@ -75,7 +75,7 @@ export default function Home({
 			/>
 		</Layout>
 	);
-
+	// console.log(object)
 	// return (
 	// 	<>
 	// 		<Head>
