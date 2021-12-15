@@ -65,42 +65,44 @@ const Why = ({ HomepageWhy, homePageFeaturesNodes }) => {
 			</div>
 			<div className="home__why--features">
 				<ul className="home__why--features--lists">
-					{homePageFeaturesNodes.reverse().map(({ acf: itm }, indx) => {
-						return (
-							<li
-								key={`${itm.image.ID}${indx}`}
-								className="home__why--features--items"
-							>
-								<div className="home__why--features--items--imgWrapper">
-									{itm.image ? (
-										<Image
-											className="home__why--features--content--img"
-											src={itm.image.url}
-											layout="fill"
-											alt="bahay renta image"
-											objectFit="cover"
-										/>
-									) : (
-										<Image
-											className="home__why--features--items--img"
-											src={defaultImage}
-											layout="fill"
-											objectFit="cover"
-											alt="defaultImage"
-										/>
-									)}
-								</div>
-								<div className="home__why--features--items--content">
-									<h2 className="home__why--features--items--content--heading">
-										{itm.heading}
-									</h2>
-									<p className="home__why--features--items--content--description">
-										{itm.description}
-									</p>
-								</div>
-							</li>
-						);
-					})}
+					{homePageFeaturesNodes
+						.map(({ acf: itm }, indx) => {
+							return (
+								<li
+									key={`${itm.image.ID}${indx}`}
+									className="home__why--features--items"
+								>
+									<div className="home__why--features--items--imgWrapper">
+										{itm.image ? (
+											<Image
+												className="home__why--features--content--img"
+												src={itm.image.url}
+												layout="fill"
+												alt="bahay renta image"
+												objectFit="cover"
+											/>
+										) : (
+											<Image
+												className="home__why--features--items--img"
+												src={defaultImage}
+												layout="fill"
+												objectFit="cover"
+												alt="defaultImage"
+											/>
+										)}
+									</div>
+									<div className="home__why--features--items--content">
+										<h2 className="home__why--features--items--content--heading">
+											{itm.heading}
+										</h2>
+										<p className="home__why--features--items--content--description">
+											{itm.description}
+										</p>
+									</div>
+								</li>
+							);
+						})
+						.reverse()}
 				</ul>
 			</div>
 			<div className="home__why--features--content">
