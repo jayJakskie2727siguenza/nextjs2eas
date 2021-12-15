@@ -67,7 +67,7 @@ const Why = ({ HomepageWhy, homePageFeaturesNodes }) => {
 			</div>
 			<div className="home__why--features">
 				<ul className="home__why--features--lists">
-					{homePageFeaturesNodes.map(({ acf: itm }, indx) => {
+					{homePageFeaturesNodes.reverse().map(({ acf: itm }, indx) => {
 						return (
 							<li
 								key={`${itm.image.ID}${indx}`}
