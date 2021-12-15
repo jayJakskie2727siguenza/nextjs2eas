@@ -54,8 +54,6 @@ import defaultImage from "../../images/defaultImages.png";
 // `;
 
 const Why = ({ HomepageWhy, homePageFeaturesNodes }) => {
-	// const { HomepageWhy, HomepageNode } = useStaticQuery(myGraphql);
-
 	return (
 		<section className="home__why container padding--sections">
 			<div className="home__why--headingWrapper">
