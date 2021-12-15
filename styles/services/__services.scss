@@ -125,11 +125,13 @@
 			display: grid;
 			grid-template-columns: 1rem 1fr;
 			column-gap: 10px;
-
-			// &--iconWrapper {
-			// 	display: grid;
-			// 	justify-content: center;
-			// }
+			align-items: center;
+			&--iconWrapper {
+				width: 10px;
+				height: 10px;
+				display: grid;
+				justify-self: center;
+			}
 			&--icon {
 				color: $primary;
 			}

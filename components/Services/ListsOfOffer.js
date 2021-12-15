@@ -1,7 +1,7 @@
 import React from "react";
 // import { graphql, useStaticQuery } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/fontawesome-free-solid";
+import { faCircle } from "@fortawesome/fontawesome-free-solid";
 
 // import ArrowRightSLineIcon from "remixicon-react/ArrowRightSLineIcon";
 
@@ -39,7 +39,7 @@ const ListsOfOffer = ({ listOfferNodes, listHeading }) => {
 							<div className="services__listWrapper--items--iconWrapper">
 								<FontAwesomeIcon
 									className="services__listWrapper--items--icon"
-									icon={faCheck}
+									icon={faCircle}
 								/>
 							</div>
 							<p className="services__listWrapper--items--name">{itm.text}</p>
