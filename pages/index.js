@@ -43,8 +43,8 @@ export default function Home({
 	// const jsxEvents = events.map((event) => {
 	// 	return <Event event={event} key={event.id} />;
 	// });
-	console.log(sitemetadata);
-	console.log(sitemetadescription);
+	// console.log(sitemetadata);
+	// console.log(sitemetadescription);
 	return (
 		<Layout
 			Banner={generalSlug.acf.banner}
@@ -54,8 +54,9 @@ export default function Home({
 			<Seo
 				title={sitemetatitle}
 				description={sitemetadescription}
-				sitemetadata={sitemetadata}
-				sitetitle={site_title}
+				path="/"
+				// sitemetadata={sitemetadata}
+				// sitetitle={site_title}
 			/>
 			<Hero HomepageHero={homePageSlug.acf.hero} />
 			<Why

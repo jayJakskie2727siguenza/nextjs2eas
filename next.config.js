@@ -3,6 +3,9 @@
 
 module.exports = {
 	reactStrictMode: true,
+	APP_NAME: "2E Accounting Solution",
+	DOMAIN: "https://2eas.ph",
+	FACEBOOK_APPID: "",
 	images: {
 		//enter the domain or subdomain where you have WordPress installed
 		// domains: ["nextjs2eas.local"],
