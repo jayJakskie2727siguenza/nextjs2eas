@@ -63,7 +63,7 @@ const Service = ({ HomepageServices, homePageServicesNodes }) => {
 												src={itm.image.url}
 												layout="fill"
 												objectFit="cover"
-												alt="bahay renta"
+												alt="2eas"
 											/>
 										) : (
 											<Image

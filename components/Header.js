@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import MenuLineIcon from "remixicon-react/MenuLineIcon";
-import PhoneFillIcon from "remixicon-react/PhoneFillIcon";
+// import PhoneFillIcon from "remixicon-react/PhoneFillIcon";
 import CloseLineIcon from "remixicon-react/CloseLineIcon";
 
 import { HomeContext } from "../components/Context/General_Context";
@@ -65,7 +65,7 @@ const Header = ({ Banner }) => {
 								src={Banner.image?.url}
 								layout="fill"
 								objectFit="cover"
-								alt="bahay renta"
+								alt="2eas"
 							/>
 							{/* <img className="navBar__header--img" src={imgLogo} alt="2eas" /> */}
 						</div>

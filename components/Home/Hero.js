@@ -43,7 +43,7 @@ const Hero = ({ HomepageHero }) => {
 					className="home__hero--img"
 					src={HomepageHero.image.url}
 					layout="fill"
-					alt="bahay renta image"
+					alt="2eas image"
 					objectFit="cover"
 				/> */}
 				{HomepageHero.image ? (
@@ -51,7 +51,7 @@ const Hero = ({ HomepageHero }) => {
 						className="home__hero--img"
 						src={HomepageHero.image.url}
 						layout="fill"
-						alt="bahay renta image"
+						alt="2eas image"
 						objectFit="cover"
 					/>
 				) : (

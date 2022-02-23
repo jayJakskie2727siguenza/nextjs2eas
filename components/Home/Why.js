@@ -78,7 +78,7 @@ const Why = ({ HomepageWhy, homePageFeaturesNodes }) => {
 												className="home__why--features--content--img"
 												src={itm.image.url}
 												layout="fill"
-												alt="bahay renta image"
+												alt="2eas"
 												objectFit="cover"
 											/>
 										) : (
@@ -112,7 +112,7 @@ const Why = ({ HomepageWhy, homePageFeaturesNodes }) => {
 							className="home__why--features--content--img"
 							src={HomepageWhy.image.url}
 							layout="fill"
-							alt="bahay renta image"
+							alt="2eas"
 							objectFit="cover"
 						/>
 					) : (

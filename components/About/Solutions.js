@@ -67,7 +67,7 @@ const Solutions = ({ AboutpageSolutions }) => {
 						layout="fill"
 						objectFit="contain"
 						className="about__solutions--img"
-						alt="bahay renta"
+						alt="2eas"
 					/>
 				) : (
 					<Image

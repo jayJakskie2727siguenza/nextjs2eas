@@ -1,7 +1,7 @@
 import Head from "next/head";
 import "../styles/styles.scss";
 
-import { getWpPagesSlug } from "../utils/wordpress";
+// import { getWpPagesSlug } from "../utils/wordpress";
 
 function MyApp({ Component, pageProps }) {
 	return (

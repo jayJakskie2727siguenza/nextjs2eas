@@ -95,7 +95,7 @@ const About = ({ HomepageAbout, homePageAboutProjectsNodes }) => {
 								src={HomepageAbout.image1.url}
 								layout="fill"
 								objectFit="cover"
-								alt="bahay renta"
+								alt="2eas"
 							/>
 						) : (
 							<Image
@@ -116,7 +116,7 @@ const About = ({ HomepageAbout, homePageAboutProjectsNodes }) => {
 								src={HomepageAbout.image2.url}
 								layout="fill"
 								objectFit="cover"
-								alt="bahay renta"
+								alt="2eas"
 							/>
 						) : (
 							<Image
@@ -172,7 +172,7 @@ const About = ({ HomepageAbout, homePageAboutProjectsNodes }) => {
 												src={itm.image.url}
 												layout="fill"
 												objectFit="cover"
-												alt="bahay renta"
+												alt="2eas"
 											/>
 										) : (
 											<Image

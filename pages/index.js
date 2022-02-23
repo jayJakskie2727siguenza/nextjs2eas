@@ -43,7 +43,8 @@ export default function Home({
 	// const jsxEvents = events.map((event) => {
 	// 	return <Event event={event} key={event.id} />;
 	// });
-
+	console.log(sitemetadata);
+	console.log(sitemetadescription);
 	return (
 		<Layout
 			Banner={generalSlug.acf.banner}

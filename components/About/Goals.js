@@ -55,7 +55,7 @@ const Goals = ({ AboutpageGoals, AboutPageGoalsNodes }) => {
 												src={itm.image?.url}
 												layout="fill"
 												objectFit="contain"
-												alt="bahay renta"
+												alt="2eas"
 											/>
 										) : (
 											<Image

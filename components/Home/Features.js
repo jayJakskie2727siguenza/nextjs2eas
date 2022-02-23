@@ -132,7 +132,7 @@ const Features = ({
 											src={itm.image?.url}
 											layout="fill"
 											objectFit="contain"
-											alt="bahay renta"
+											alt="2eas"
 										/>
 									) : (
 										<Image
@@ -183,7 +183,7 @@ const Features = ({
 													src={dataItm.image.url}
 													layout="fill"
 													objectFit="contain"
-													alt="bahay renta"
+													alt="2eas"
 												/>
 											) : (
 												<Image

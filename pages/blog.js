@@ -41,7 +41,7 @@
 import React from "react";
 
 const blog = () => {
-	return <div>sample</div>;
+	return <div>coming sooon</div>;
 };
 
 export default blog;

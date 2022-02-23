@@ -149,7 +149,7 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 										src={FooterData.image?.url}
 										layout="fill"
 										objectFit="contain"
-										alt="bahay renta"
+										alt="2eas"
 									/>
 								) : (
 									<Image
