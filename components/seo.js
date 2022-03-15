@@ -14,24 +14,18 @@ function SEO({ description, lang, meta, title, featuredImage }) {
 			<link rel="canonical" href={`${process.env.DOMAIN}`} />
 
 			{/* Open Graph for social media link */}
-			<meta
-				property="og:title"
-				content={`Rent a Property | ${process.env.APP_NAME}`}
-				key="title"
-			/>
+			<meta property="og:title" content={title} key="title" />
 			<meta property="og:description" content={description} />
 			<meta property="og:type" content="website" />
 			{/* <meta property="og:url" content={`${process.env.DOMAIN}${path}`} /> */}
 			<meta property="og:url" content={`${process.env.DOMAIN}`} />
 			<meta property="og:site_name" content={`${process.env.APP_NAME}`} />
+			{/* <meta property="og:site_name" content={`${process.env.APP_NAME}`} /> */}
 
-			<meta
-				property="og:image"
-				content={`${featuredImage}` || `${process.env.DOMAIN}/hero-bg.jpg`}
-			/>
+			<meta property="og:image" content={`${process.env.DOMAIN}/hero-bg.jpg`} />
 			<meta
 				property="og:image:secure_url"
-				content={`${featuredImage}` || `${process.env.DOMAIN}/hero-bg.jpg`}
+				content={`${process.env.DOMAIN}/hero-bg.jpg`}
 			/>
 			<meta property="og:image:type" content="image/jpg" />
 			<meta property="fb:app_id" content={`${process.env.FACEBOOK_APPID}`} />
