@@ -57,8 +57,9 @@ const AboutPage = ({
 				// sitetitle="sitetitle"
 				title={sitemetatitle}
 				description={sitemetadescription}
-				sitemetadata={sitemetadata}
-				sitetitle={site_title}
+				path="/about"
+				// sitemetadata={sitemetadata}
+				// sitetitle={site_title}
 			/>
 			<Banner pages={"about"} />
 			<Solutions AboutpageSolutions={aboutPageSlug.acf.solutions} />

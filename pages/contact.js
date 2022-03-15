@@ -45,8 +45,9 @@ const ContactPage = ({
 			<Seo
 				title={sitemetatitle}
 				description={sitemetadescription}
-				sitemetadata={sitemetadata}
-				sitetitle={site_title}
+				path="/contact"
+				// sitemetadata={sitemetadata}
+				// sitetitle={site_title}
 			/>
 			<Banner pages={"contact"} />
 			<Content

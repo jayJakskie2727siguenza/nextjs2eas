@@ -1,9 +1,9 @@
 import React from "react";
 import Head from "next/head";
 import PropTypes from "prop-types";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 
-function SEO({ sitemetadata, description, lang, meta, title, sitetitle }) {
+function SEO({ description, lang, meta, title, featuredImage }) {
 	// console.log(sitemetadata);
 	// console.log("seo component");
 
@@ -27,40 +27,40 @@ function SEO({ sitemetadata, description, lang, meta, title, sitetitle }) {
 	//      `
 	//  );
 
-	const metaDescription = description || sitemetadata.description;
+	// const metaDescription = description || sitemetadata.description;
 	// const metaDescription = description || "sitetitle";
 
 	return (
 		<Head>
 			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-			<title>
-				{title} | {process.APP_NAME}
-			</title>
+			<title>{title}</title>
 
 			<meta name="description" content={description} />
-			<link rel="canonical" href={`${process.DOMAIN}${path}`} />
+			{/* <link rel="canonical" href={`${process.env.DOMAIN}${path}`} /> */}
+			<link rel="canonical" href={`${process.env.DOMAIN}`} />
 
 			{/* Open Graph for social media link */}
 			<meta
 				property="og:title"
-				content={`Rent a Property | ${process.APP_NAME}`}
+				content={`Rent a Property | ${process.env.APP_NAME}`}
 				key="title"
 			/>
 			<meta property="og:description" content={description} />
 			<meta property="og:type" content="website" />
-			<meta property="og:url" content={`${process.DOMAIN}${path}`} />
-			<meta property="og:site_name" content={`${process.APP_NAME}`} />
+			{/* <meta property="og:url" content={`${process.env.DOMAIN}${path}`} /> */}
+			<meta property="og:url" content={`${process.env.DOMAIN}`} />
+			<meta property="og:site_name" content={`${process.env.APP_NAME}`} />
 
 			<meta
 				property="og:image"
-				content={`${featuredImage}` || `${process.DOMAIN}/hero-bg.jpg`}
+				content={`${featuredImage}` || `${process.env.DOMAIN}/hero-bg.jpg`}
 			/>
 			<meta
 				property="og:image:secure_url"
-				content={`${featuredImage}` || `${process.DOMAIN}/hero-bg.jpg`}
+				content={`${featuredImage}` || `${process.env.DOMAIN}/hero-bg.jpg`}
 			/>
 			<meta property="og:image:type" content="image/jpg" />
-			<meta property="fb:app_id" content={`${process.FACEBOOK_APPID}`} />
+			<meta property="fb:app_id" content={`${process.env.FACEBOOK_APPID}`} />
 			{/* <script
 			  async
 			  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4159099680789890"

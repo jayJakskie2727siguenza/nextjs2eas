@@ -51,8 +51,9 @@ const ServicesPage = ({
 			<Seo
 				title={sitemetatitle}
 				description={sitemetadescription}
-				sitemetadata={sitemetadata}
-				sitetitle={site_title}
+				path="/services"
+				// sitemetadata={sitemetadata}
+				// sitetitle={site_title}
 			/>
 			<Banner pages={"services"} />
 			<Offer
