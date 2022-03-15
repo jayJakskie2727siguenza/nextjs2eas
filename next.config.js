@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === "development") {
 	(env = {
 		APP_NAME: "2E Accounting Solution",
 		DOMAIN: "http://localhost:3000",
-		FACEBOOK_APPID: "",
+		FACEBOOK_APPID: "306249048265717",
 	}),
 		(images = {
 			//enter the domain or subdomain where you have WordPress installed
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "development") {
 	(env = {
 		APP_NAME: "2E Accounting Solution",
 		DOMAIN: "https://2eas.ph",
-		FACEBOOK_APPID: "",
+		FACEBOOK_APPID: "306249048265717",
 	}),
 		(images = {
 			//enter the domain or subdomain where you have WordPress installed
