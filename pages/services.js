@@ -36,7 +36,7 @@ const ServicesPage = ({
 	servicesSlug,
 }) => {
 	const { sitemetadata } = seoSettingSlug.acf;
-	const { sitemetatitle, sitemetadescription } =
+	const { sitemetatitle, sitemetadescription, featuredimage } =
 		servicesPageSlug.acf.servicepage_seo;
 	const { site_title } = generalSettingSlug.acf;
 	// const {
@@ -52,6 +52,7 @@ const ServicesPage = ({
 				title={sitemetatitle}
 				description={sitemetadescription}
 				path="/services"
+				featuredImage={featuredimage.url}
 				// sitemetadata={sitemetadata}
 				// sitetitle={site_title}
 			/>

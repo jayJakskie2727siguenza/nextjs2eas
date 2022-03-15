@@ -37,7 +37,7 @@ const AboutPage = ({
 	generalSlug,
 }) => {
 	const { sitemetadata } = seoSettingSlug.acf;
-	const { sitemetatitle, sitemetadescription } =
+	const { sitemetatitle, sitemetadescription, featuredimage } =
 		aboutPageSlug.acf.aboutpage_seo;
 	const { site_title } = generalSettingSlug.acf;
 	// const {
@@ -58,8 +58,7 @@ const AboutPage = ({
 				title={sitemetatitle}
 				description={sitemetadescription}
 				path="/about"
-				// sitemetadata={sitemetadata}
-				// sitetitle={site_title}
+				featuredImage={featuredimage.url}
 			/>
 			<Banner pages={"about"} />
 			<Solutions AboutpageSolutions={aboutPageSlug.acf.solutions} />

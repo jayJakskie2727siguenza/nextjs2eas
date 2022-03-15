@@ -4,32 +4,6 @@ import PropTypes from "prop-types";
 // import { Helmet } from "react-helmet";
 
 function SEO({ description, lang, meta, title, featuredImage }) {
-	// console.log(sitemetadata);
-	// console.log("seo component");
-
-	//  const { generalSettings, seoSettings } = useStaticQuery(
-	//      graphql`
-	//          {
-	//              seoSettings: wpPage(slug: { eq: "seosettings" }) {
-	//                  seo_cf {
-	//                      sitemetadata {
-	//                          description
-	//                          title
-	//                      }
-	//                  }
-	//              }
-	//              generalSettings: wpPage(uri: { eq: "/generalsettings/" }) {
-	//                  general_settings_cf {
-	//                      siteTitle
-	//                  }
-	//              }
-	//          }
-	//      `
-	//  );
-
-	// const metaDescription = description || sitemetadata.description;
-	// const metaDescription = description || "sitetitle";
-	console.log(`${process.env.DOMAIN}/hero-bg.jpg`);
 	return (
 		<Head>
 			<meta name="viewport" content="initial-scale=1.0, width=device-width" />

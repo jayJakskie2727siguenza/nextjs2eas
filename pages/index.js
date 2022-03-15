@@ -31,7 +31,8 @@ export default function Home({
 	// sampleNodes,
 }) {
 	const { sitemetadata } = seoSettingSlug.acf;
-	const { sitemetatitle, sitemetadescription } = homePageSlug.acf.homepage_seo;
+	const { sitemetatitle, sitemetadescription, featuredimage } =
+		homePageSlug.acf.homepage_seo;
 	const { site_title } = generalSettingSlug.acf;
 
 	// const jsxPosts = posts.map((post) => {
@@ -45,6 +46,7 @@ export default function Home({
 	// });
 	// console.log(sitemetadata);
 	// console.log(sitemetadescription);
+
 	return (
 		<Layout
 			Banner={generalSlug.acf.banner}
@@ -55,6 +57,7 @@ export default function Home({
 				title={sitemetatitle}
 				description={sitemetadescription}
 				path="/"
+				featuredImage={featuredimage.url}
 				// sitemetadata={sitemetadata}
 				// sitetitle={site_title}
 			/>

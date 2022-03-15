@@ -29,7 +29,7 @@ const ContactPage = ({
 	generalSlug,
 }) => {
 	const { sitemetadata } = seoSettingSlug.acf;
-	const { sitemetatitle, sitemetadescription } =
+	const { sitemetatitle, sitemetadescription, featuredimage } =
 		contactPageSlug.acf.contactpage_seo;
 	const { site_title } = generalSettingSlug.acf;
 	// const {
@@ -46,6 +46,7 @@ const ContactPage = ({
 				title={sitemetatitle}
 				description={sitemetadescription}
 				path="/contact"
+				featuredImage={featuredimage.url}
 				// sitemetadata={sitemetadata}
 				// sitetitle={site_title}
 			/>

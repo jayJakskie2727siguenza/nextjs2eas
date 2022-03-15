@@ -8,7 +8,7 @@ let images = {};
 if (process.env.NODE_ENV === "development") {
 	(env = {
 		APP_NAME: "2E Accounting Solution",
-		DOMAIN: "http://localhost:3000/",
+		DOMAIN: "http://localhost:3000",
 		FACEBOOK_APPID: "",
 	}),
 		(images = {
