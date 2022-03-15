@@ -29,17 +29,17 @@ import {
 // `;
 
 const AboutPage = ({
-	seoSettingSlug,
+	// seoSettingSlug,
 	aboutPageSlug,
 	generalSettingSlug,
 	aboutPageGoalsNodes,
 	aboutPageAchievementsNodes,
 	generalSlug,
 }) => {
-	const { sitemetadata } = seoSettingSlug.acf;
+	// const { sitemetadata } = seoSettingSlug.acf;
 	const { sitemetatitle, sitemetadescription, featuredimage } =
 		aboutPageSlug.acf.aboutpage_seo;
-	const { site_title } = generalSettingSlug.acf;
+
 	// const {
 	// 	wpPage: { aboutpage_cf },
 	// } = useStaticQuery(myGraphql);
@@ -78,7 +78,7 @@ const AboutPage = ({
 export default AboutPage;
 
 export async function getStaticProps() {
-	const seoSettingSlug = await getWpPagesSlug("seosettings");
+	// const seoSettingSlug = await getWpPagesSlug("seosettings");
 	const aboutPageSlug = await getWpPagesSlug("about");
 	const generalSettingSlug = await getWpPagesSlug("generalsettings");
 	const aboutPageGoalsNodes = await getCPTGoals();

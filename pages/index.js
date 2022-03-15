@@ -19,7 +19,7 @@ import {
 } from "../utils/wordpress";
 
 export default function Home({
-	seoSettingSlug,
+	// seoSettingSlug,
 	homePageSlug,
 	generalSettingSlug,
 	homePageFeaturesNodes,
@@ -30,10 +30,9 @@ export default function Home({
 	generalSlug,
 	// sampleNodes,
 }) {
-	const { sitemetadata } = seoSettingSlug.acf;
+	// const { sitemetadata } = seoSettingSlug.acf;
 	const { sitemetatitle, sitemetadescription, featuredimage } =
 		homePageSlug.acf.homepage_seo;
-	const { site_title } = generalSettingSlug.acf;
 
 	// const jsxPosts = posts.map((post) => {
 	// 	const featuredMediaId = post["featured_media"];
@@ -110,7 +109,7 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-	const seoSettingSlug = await getWpPagesSlug("seosettings");
+	// const seoSettingSlug = await getWpPagesSlug("seosettings");
 	const homePageSlug = await getWpPagesSlug("home");
 	const generalSlug = await getWpPagesSlug("general");
 	const generalSettingSlug = await getWpPagesSlug("generalsettings");
@@ -123,7 +122,7 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			seoSettingSlug,
+			// seoSettingSlug,
 			homePageSlug,
 			generalSettingSlug,
 			homePageFeaturesNodes,

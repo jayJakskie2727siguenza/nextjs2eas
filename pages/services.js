@@ -27,7 +27,7 @@ import {
 // `;
 
 const ServicesPage = ({
-	seoSettingSlug,
+	// seoSettingSlug,
 	servicesPageSlug,
 	generalSettingSlug,
 	generalSlug,
@@ -35,10 +35,10 @@ const ServicesPage = ({
 	acctngTxationNodes,
 	servicesSlug,
 }) => {
-	const { sitemetadata } = seoSettingSlug.acf;
+	// const { sitemetadata } = seoSettingSlug.acf;
 	const { sitemetatitle, sitemetadescription, featuredimage } =
 		servicesPageSlug.acf.servicepage_seo;
-	const { site_title } = generalSettingSlug.acf;
+
 	// const {
 	// 	wpPage: { services_cf },
 	// } = useStaticQuery(myGraphql);
@@ -76,7 +76,7 @@ const ServicesPage = ({
 export default ServicesPage;
 
 export async function getStaticProps() {
-	const seoSettingSlug = await getWpPagesSlug("seosettings");
+	// const seoSettingSlug = await getWpPagesSlug("seosettings");
 	const servicesPageSlug = await getWpPagesSlug("services");
 	const generalSettingSlug = await getWpPagesSlug("generalsettings");
 	const generalSlug = await getWpPagesSlug("general");
@@ -86,7 +86,7 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			seoSettingSlug,
+			// seoSettingSlug,
 			servicesPageSlug,
 			generalSettingSlug,
 			generalSlug,

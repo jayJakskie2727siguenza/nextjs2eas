@@ -6,7 +6,6 @@ export async function getWpPages() {
 	const wpPagesRes = await fetch(BASE_URL + "/pages");
 	const wpPages = await wpPagesRes.json();
 
-	console.log(wpPages);
 	return wpPages;
 }
 

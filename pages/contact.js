@@ -23,15 +23,14 @@ import { getWpPagesSlug } from "../utils/wordpress";
 // `;
 
 const ContactPage = ({
-	seoSettingSlug,
+	// seoSettingSlug,
 	contactPageSlug,
 	generalSettingSlug,
 	generalSlug,
 }) => {
-	const { sitemetadata } = seoSettingSlug.acf;
+	// const { sitemetadata } = seoSettingSlug.acf;
 	const { sitemetatitle, sitemetadescription, featuredimage } =
 		contactPageSlug.acf.contactpage_seo;
-	const { site_title } = generalSettingSlug.acf;
 	// const {
 	// 	wpPage: { contactpage_cf },
 	// } = useStaticQuery(myGraphql);
@@ -67,7 +66,7 @@ const ContactPage = ({
 export default ContactPage;
 
 export async function getStaticProps() {
-	const seoSettingSlug = await getWpPagesSlug("seosettings");
+	// const seoSettingSlug = await getWpPagesSlug("seosettings");
 	const contactPageSlug = await getWpPagesSlug("contact");
 	const generalSettingSlug = await getWpPagesSlug("generalsettings");
 	const generalSlug = await getWpPagesSlug("general");
