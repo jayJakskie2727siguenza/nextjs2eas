@@ -29,7 +29,7 @@ function SEO({ description, lang, meta, title, featuredImage }) {
 
 	// const metaDescription = description || sitemetadata.description;
 	// const metaDescription = description || "sitetitle";
-
+	console.log(`${process.env.DOMAIN}/hero-bg.jpg`);
 	return (
 		<Head>
 			<meta name="viewport" content="initial-scale=1.0, width=device-width" />
