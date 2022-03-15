@@ -22,11 +22,16 @@ function SEO({ description, lang, meta, title, featuredImage }) {
 			<meta property="og:site_name" content={`${process.env.APP_NAME}`} />
 			{/* <meta property="og:site_name" content={`${process.env.APP_NAME}`} /> */}
 
-			<meta property="og:image" content={`${process.env.DOMAIN}/hero-bg.jpg`} />
+			<meta
+				property="og:image"
+				content={`https://2eas-1-629268.ingress-baronn.easywp.com/wp-content/uploads/2021/09/demo-eleven-banner-2.jpg`}
+			/>
 			<meta
 				property="og:image:secure_url"
-				content={`${process.env.DOMAIN}/hero-bg.jpg`}
+				content={`https://2eas-1-629268.ingress-baronn.easywp.com/wp-content/uploads/2021/09/demo-eleven-banner-2.jpg`}
 			/>
+
+			{/* https://2eas-1-629268.ingress-baronn.easywp.com/wp-content/uploads/2021/09/demo-eleven-banner-2.jpg */}
 			<meta property="og:image:type" content="image/jpg" />
 			<meta property="fb:app_id" content={`${process.env.FACEBOOK_APPID}`} />
 			{/* <script
