@@ -68,7 +68,11 @@ import defaultImages from "../../images/defaultImages.png";
 // 	}
 // `;
 
-const About = ({ HomepageAbout, homePageAboutProjectsNodes }) => {
+const About = ({
+	HomepageAbout,
+	homePageAboutProjectsNodes,
+	HomepageOverviews,
+}) => {
 	// const { HomepageAbout, HomepageAboutNodes } = useStaticQuery(myGraphql);
 
 	return (
@@ -147,11 +151,11 @@ const About = ({ HomepageAbout, homePageAboutProjectsNodes }) => {
 			<div className="home__about--overviews">
 				<div className="home__about--overviews--top">
 					<h2 className="home__about--overviews--top--heading">
-						{HomepageAbout.heading}
+						{HomepageOverviews.heading}
 						{/* Our Project Overviews */}
 					</h2>
 					<p className="home__about--overviews--top--subheading">
-						{HomepageAbout.subheading}
+						{HomepageOverviews.subheading}
 						{/* professionals can train you and your staff from setup, training,
 						testing, finalization and go live on accounting system and tex
 						system so that you get the most out of it. */}

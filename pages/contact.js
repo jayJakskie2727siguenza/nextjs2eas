@@ -23,7 +23,7 @@ import { getWpPagesSlug } from "../utils/wordpress";
 // `;
 
 const ContactPage = ({ contactPageSlug, generalSettingSlug, generalSlug }) => {
-	const { sitemetatitle, sitemetadescription, featuredimage } =
+	const { sitemetatitle, sitemetadescription } =
 		contactPageSlug.acf.contactpage_seo;
 	// const {
 	// 	wpPage: { contactpage_cf },
@@ -39,7 +39,7 @@ const ContactPage = ({ contactPageSlug, generalSettingSlug, generalSlug }) => {
 				title={sitemetatitle}
 				description={sitemetadescription}
 				path="/contact"
-				featuredImage={featuredimage.url}
+				featuredImage={generalSettingSlug.acf.websiteicon.url}
 				// sitemetadata={sitemetadata}
 				// sitetitle={site_title}
 			/>

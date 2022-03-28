@@ -36,12 +36,13 @@ const ServicesPage = ({
 	servicesSlug,
 }) => {
 	// const { sitemetadata } = seoSettingSlug.acf;
-	const { sitemetatitle, sitemetadescription, featuredimage } =
+	const { sitemetatitle, sitemetadescription } =
 		servicesPageSlug.acf.servicepage_seo;
 
 	// const {
 	// 	wpPage: { services_cf },
 	// } = useStaticQuery(myGraphql);
+
 	return (
 		<Layout
 			Banner={generalSlug.acf.banner}
@@ -52,7 +53,7 @@ const ServicesPage = ({
 				title={sitemetatitle}
 				description={sitemetadescription}
 				path="/services"
-				featuredImage={featuredimage.url}
+				featuredImage={generalSettingSlug.acf.websiteicon.url}
 				// sitemetadata={sitemetadata}
 				// sitetitle={site_title}
 			/>

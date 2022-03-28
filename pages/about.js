@@ -35,7 +35,7 @@ const AboutPage = ({
 	aboutPageAchievementsNodes,
 	generalSlug,
 }) => {
-	const { sitemetatitle, sitemetadescription, featuredimage } =
+	const { sitemetatitle, sitemetadescription } =
 		aboutPageSlug.acf.aboutpage_seo;
 
 	// const {
@@ -56,7 +56,7 @@ const AboutPage = ({
 				title={sitemetatitle}
 				description={sitemetadescription}
 				path="/about"
-				featuredImage={featuredimage.url}
+				featuredImage={generalSettingSlug.acf.websiteicon.url}
 			/>
 			<Banner pages={"about"} />
 			<Solutions AboutpageSolutions={aboutPageSlug.acf.solutions} />

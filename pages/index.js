@@ -31,8 +31,7 @@ export default function Home({
 	// sampleNodes,
 }) {
 	// const { sitemetadata } = seoSettingSlug.acf;
-	const { sitemetatitle, sitemetadescription, featuredimage } =
-		homePageSlug.acf.homepage_seo;
+	const { sitemetatitle, sitemetadescription } = homePageSlug.acf.homepage_seo;
 
 	// const jsxPosts = posts.map((post) => {
 	// 	const featuredMediaId = post["featured_media"];
@@ -45,7 +44,7 @@ export default function Home({
 	// });
 	// console.log(sitemetadata);
 	// console.log(sitemetadescription);
-
+	console.log(homePageSlug.acf);
 	return (
 		<Layout
 			Banner={generalSlug.acf.banner}
@@ -56,7 +55,7 @@ export default function Home({
 				title={sitemetatitle}
 				description={sitemetadescription}
 				path="/"
-				featuredImage={featuredimage.url}
+				featuredImage={generalSettingSlug.acf.websiteicon.url}
 				// sitemetadata={sitemetadata}
 				// sitetitle={site_title}
 			/>
@@ -71,6 +70,7 @@ export default function Home({
 			/>
 			<AboutSec
 				HomepageAbout={homePageSlug.acf.about}
+				HomepageOverviews={homePageSlug.acf.overviews}
 				homePageAboutProjectsNodes={homePageAboutProjectsNodes}
 			/>
 			<Features
