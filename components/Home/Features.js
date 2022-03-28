@@ -60,6 +60,7 @@ const Features = ({
 	HomepageFeatures,
 	HomepageFeaturesHighlightNodes,
 	HomepageAddonsNodes,
+	HomepageAddons,
 }) => {
 	const [imgDivData, setImgDivData] = useState([]);
 	const [counter, setCounter] = useState(1);
@@ -159,7 +160,7 @@ const Features = ({
 			</div>
 			<div className="home__features--highlights--addOns padding--sections">
 				<h2 className="home__features--highlights--addOns--heading">
-					{HomepageFeatures.addons}
+					{HomepageAddons}
 					{/* other xero add-on we recommend for your business */}
 				</h2>
 				<div className="home__features--highlights--addOns--recommended">

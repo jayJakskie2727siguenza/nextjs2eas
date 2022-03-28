@@ -77,6 +77,7 @@ export default function Home({
 				HomepageFeatures={homePageSlug.acf.features}
 				HomepageFeaturesHighlightNodes={homePageFeaturesHighlightNodes}
 				HomepageAddonsNodes={homePageAddonsNodes}
+				HomepageAddons={homePageSlug.acf.addons}
 			/>
 		</Layout>
 	);
