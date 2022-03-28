@@ -73,7 +73,7 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			seoSettingSlug,
+			// seoSettingSlug,
 			contactPageSlug,
 			generalSettingSlug,
 			generalSlug,
