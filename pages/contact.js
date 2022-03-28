@@ -70,6 +70,6 @@ export async function getStaticProps() {
 			generalSettingSlug,
 			generalSlug,
 		},
-		revalidate: 10, // In seconds
+		revalidate: 10,
 	};
 }
