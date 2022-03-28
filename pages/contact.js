@@ -22,13 +22,7 @@ import { getWpPagesSlug } from "../utils/wordpress";
 // 	}
 // `;
 
-const ContactPage = ({
-	// seoSettingSlug,
-	contactPageSlug,
-	generalSettingSlug,
-	generalSlug,
-}) => {
-	// const { sitemetadata } = seoSettingSlug.acf;
+const ContactPage = ({ contactPageSlug, generalSettingSlug, generalSlug }) => {
 	const { sitemetatitle, sitemetadescription, featuredimage } =
 		contactPageSlug.acf.contactpage_seo;
 	// const {
@@ -66,14 +60,12 @@ const ContactPage = ({
 export default ContactPage;
 
 export async function getStaticProps() {
-	// const seoSettingSlug = await getWpPagesSlug("seosettings");
 	const contactPageSlug = await getWpPagesSlug("contact");
 	const generalSettingSlug = await getWpPagesSlug("generalsettings");
 	const generalSlug = await getWpPagesSlug("general");
 
 	return {
 		props: {
-			// seoSettingSlug,
 			contactPageSlug,
 			generalSettingSlug,
 			generalSlug,
