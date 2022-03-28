@@ -21,7 +21,7 @@ function SEO({ description, lang, meta, title, featuredImage }) {
 			<meta property="og:url" content={`${process.env.DOMAIN}`} />
 			<meta property="og:site_name" content={`${process.env.APP_NAME}`} />
 			{/* <meta property="og:site_name" content={`${process.env.APP_NAME}`} /> */}
-
+			<link rel="icon" href={`${featuredImage}`} />
 			<meta
 				property="og:image"
 				content={
