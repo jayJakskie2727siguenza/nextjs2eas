@@ -51,11 +51,7 @@ const Header = ({ Banner }) => {
 
 	return (
 		<div className="navBar__header">
-			<div className="navBar__header--topNav">
-				{/* {BannerGraphql.banner.text
-					? BannerGraphql.banner.text
-					: `We offer 50% `} */}
-			</div>
+			<div className="navBar__header--topNav">{Banner?.text}</div>
 			<div className="navBar__header ">
 				<div className="navBar__header--wrapper container">
 					<Link href="/" passHref>
