@@ -138,10 +138,11 @@
 		&--imgWrapper {
 			display: grid;
 			width: 100%;
-			height: 22rem;
+			height: 100%;
 			position: relative;
 			@media (max-width: 1210px) {
 				width: 35rem;
+				height: 30rem;
 			}
 			@media (max-width: 690px) {
 				width: 100%;

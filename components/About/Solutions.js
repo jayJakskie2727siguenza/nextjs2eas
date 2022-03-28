@@ -65,7 +65,7 @@ const Solutions = ({ AboutpageSolutions }) => {
 					<Image
 						src={AboutpageSolutions.image?.url}
 						layout="fill"
-						objectFit="contain"
+						objectFit="cover"
 						className="about__solutions--img"
 						alt="2eas"
 					/>
@@ -74,7 +74,7 @@ const Solutions = ({ AboutpageSolutions }) => {
 						src={defaultImage}
 						className="about__solutions--img"
 						layout="fill"
-						objectFit="contain"
+						objectFit="cover"
 						alt="defaultImage"
 					/>
 				)}

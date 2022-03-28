@@ -10,6 +10,8 @@ if (process.env.NODE_ENV === "development") {
 		APP_NAME: "2E Accounting Solution",
 		DOMAIN: "http://localhost:3000",
 		FACEBOOK_APPID: "306249048265717",
+		MAILCHIMP:
+			"https://gmail.us8.list-manage.com/subscribe/post?u=3b75a0de37db84d2ca25d03bb&amp;id=1322d1d67c",
 	}),
 		(images = {
 			//enter the domain or subdomain where you have WordPress installed
@@ -21,6 +23,8 @@ if (process.env.NODE_ENV === "development") {
 		APP_NAME: "2E Accounting Solution",
 		DOMAIN: "https://2eas.ph",
 		FACEBOOK_APPID: "306249048265717",
+		MAILCHIMP:
+			"https://gmail.us8.list-manage.com/subscribe/post?u=3b75a0de37db84d2ca25d03bb&amp;id=1322d1d67c",
 	}),
 		(images = {
 			//enter the domain or subdomain where you have WordPress installed

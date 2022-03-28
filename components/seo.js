@@ -24,11 +24,15 @@ function SEO({ description, lang, meta, title, featuredImage }) {
 
 			<meta
 				property="og:image"
-				content={`${featuredImage}` || `${process.env.DOMAIN}/hero-bg.jpg`}
+				content={
+					`${featuredImage}` || `${process.env.DOMAIN}/2eas_mobile_logo.png`
+				}
 			/>
 			<meta
 				property="og:image:secure_url"
-				content={`${featuredImage}` || `${process.env.DOMAIN}/hero-bg.jpg`}
+				content={
+					`${featuredImage}` || `${process.env.DOMAIN}/2eas_mobile_logo.png`
+				}
 			/>
 			<meta property="og:image:type" content="image/jpg" />
 			<meta property="fb:app_id" content={`${process.env.FACEBOOK_APPID}`} />

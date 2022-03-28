@@ -279,7 +279,11 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 							<p className="footer__right--content--text">
 								{FooterData.cta.description}
 							</p>
-							<div className="footer__right--content--cta">
+							<form
+								action={process.env.MAILCHIMP}
+								className="footer__right--content--cta"
+								method="post"
+							>
 								<div className="footer__right--content--cta--inputWrapper">
 									<input
 										className={`footer__right--content--cta--inputWrapper--input${
@@ -310,7 +314,7 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 										? "error"
 										: "submit"}
 								</button>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>

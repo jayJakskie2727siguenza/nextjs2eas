@@ -46,8 +46,6 @@ export default function Home({
 	// console.log(sitemetadata);
 	// console.log(sitemetadescription);
 
-	console.log(generalSlug);
-
 	return (
 		<Layout
 			Banner={generalSlug.acf.banner}
