@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, memo, useCallback, useEffect } from "react";
+import MailchimpSubscribe from "react-mailchimp-subscribe";
+
 // import { Link } from "gatsby";
 
 import Link from "next/link";
@@ -25,46 +27,91 @@ import LinkedinFillIcon from "remixicon-react/LinkedinFillIcon";
 
 import defaultImage from "../images/defaultImages.png";
 
-// const myGraphql = graphql`
-// 	{
-// 		FooterSection: wpPage(uri: { eq: "/generalsettings/" }) {
-// 			general_cf {
-// 				footer {
-// 					description
-// 					image {
-// 						altText
-// 						localFile {
-// 							childImageSharp {
-// 								fluid(quality: 100) {
-// 									...GatsbyImageSharpFluid_noBase64
-// 								}
-// 							}
-// 						}
-// 					}
-// 					cta {
-// 						heading
-// 						description
-// 					}
-// 				}
-// 			}
-// 			general_settings_cf {
-// 				contact {
-// 					cellphone
-// 					telephone
-// 				}
-// 				address
-// 				email
-// 				socialmedia {
-// 					facebook
-// 					linkedin
-// 				}
-// 			}
-// 		}
-// 	}
-// `;
+const NewsLetterForm = memo(
+	({
+		state,
+		setState,
+		status,
+		message,
+		onValidated,
+		handleEmailInputChange,
+	}) => {
+		const handleSubmitForm = () => {
+			setState({
+				...state,
+				loading: true,
+			});
+
+			console.log(message);
+
+			if (state.email) {
+				onValidated({ EMAIL: state.email });
+
+				if (status === "success") {
+					setState({
+						...state,
+						result: "success",
+						loading: false,
+					});
+				}
+
+				if (status === "error") {
+					setState({
+						...state,
+						result: "error",
+						loading: false,
+					});
+				}
+			}
+
+			if (!state.email) {
+				setState({ ...state, result: "pending", loading: false });
+			}
+		};
+
+		return (
+			<div className="footer__right--content--cta">
+				<div className="footer__right--content--cta--wrapper">
+					<div className="footer__right--content--cta--inputWrapper">
+						<input
+							className={`footer__right--content--cta--inputWrapper--input${
+								state.result === "pending" ? "--emptyField" : ""
+							}`}
+							type="email"
+							name="email"
+							value={state.email}
+							placeholder={`${
+								state.result === "pending"
+									? "Your Field is Empty"
+									: "Enter Your Email"
+							}`}
+							onChange={handleEmailInputChange}
+						/>
+					</div>
+					<button
+						type="submit"
+						onClick={handleSubmitForm}
+						className={`footer__right--content--cta--inputWrapper--btn${
+							state.result === "error" ? "--error" : ""
+						}`}
+					>
+						{state.result === "success"
+							? "sent"
+							: state.result === "error"
+							? "error"
+							: "submit"}
+					</button>
+				</div>
+				<p className="footer__right--content--cta--status">
+					{(state.result === "success" && "the email is successfully sent") ||
+						(state.result === "error" && "the email is already exists")}
+				</p>
+			</div>
+		);
+	}
+);
 
 const Footer = ({ FooterData, FooterGenSetting }) => {
-	// const { FooterSection } = useStaticQuery(myGraphql);
 	const [telephoneNum, setTelephoneNum] = useState("");
 
 	const [state, setState] = useState({
@@ -73,20 +120,31 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 		loading: false,
 	});
 
-	// useEffect(() => {
-	// 	setTelephoneNum(
-	// 		handleFormattedTelNum(FooterSection.general_settings_cf.contact.telephone)
-	// 	);
-	// }, [FooterSection.general_settings_cf.contact.telephone]);
+	useEffect(() => {
+		setTelephoneNum(handleFormattedTelNum(FooterGenSetting.contact.telephone));
+	}, []);
 
-	const { email, result } = state;
+	const handleEmailInputChange = useCallback(
+		(e) => {
+			e.preventDefault();
+			setState({
+				...state,
+				[e.target.name]: e.target.value,
+			});
+		},
+		[state.email]
+	);
 
-	const handleEmailInputChange = (e) => {
-		setState({
-			...state,
-			[e.target.name]: e.target.value,
-		});
-	};
+	function formatterPhilNumber(entry = "") {
+		const match = entry
+			.replace(/\D+/g, "")
+			.replace(/^1/, "")
+			.match(/([^\d]*\d[^\d]*){1,10}$/)[0];
+		const part1 = match.length > 2 ? `(${match.substring(0, 3)})` : match;
+		const part2 = match.length > 3 ? ` ${match.substring(3, 6)}` : "";
+		const part3 = match.length > 6 ? `-${match.substring(6, 10)}` : "";
+		return `${part1}${part2}${part3}`;
+	}
 
 	// const submitButton = async (e) => {
 	// 	e.preventDefault();
@@ -247,7 +305,9 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 												</div>
 												<p className="footer__middle--content--items--text">
 													{FooterGenSetting.contact.cellphone &&
-														`+${FooterGenSetting.contact.cellphone}`}
+														`${formatterPhilNumber(
+															FooterGenSetting.contact.cellphone
+														)}`}
 												</p>
 											</div>
 										</a>
@@ -279,42 +339,23 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 							<p className="footer__right--content--text">
 								{FooterData.cta.description}
 							</p>
-							<form
-								action={process.env.MAILCHIMP}
-								className="footer__right--content--cta"
-								method="post"
-							>
-								<div className="footer__right--content--cta--inputWrapper">
-									<input
-										className={`footer__right--content--cta--inputWrapper--input${
-											result === "pending" ? "--emptyField" : ""
-										}`}
-										type="email"
-										name="email"
-										value={state.email}
-										placeholder={`${
-											result === "pending"
-												? "Your Field is Empty"
-												: "Enter Your Email"
-										}`}
-										onChange={handleEmailInputChange}
-									/>
-								</div>
-								<button
-									disabled={false}
-									// onClick={submitButton}
-									onClick={() => console.log("click")}
-									className={`footer__right--content--cta--inputWrapper--btn${
-										result === "error" ? "--error" : ""
-									}`}
-								>
-									{result === "success"
-										? "sent"
-										: result === "error"
-										? "error"
-										: "submit"}
-								</button>
-							</form>
+							<MailchimpSubscribe
+								url={process.env.MAILCHIMP}
+								render={(props) => {
+									const { subscribe, status, message } = props || {};
+
+									return (
+										<NewsLetterForm
+											state={state}
+											setState={setState}
+											status={status}
+											message={message}
+											onValidated={(formData) => subscribe(formData)}
+											handleEmailInputChange={handleEmailInputChange}
+										/>
+									);
+								}}
+							/>
 						</div>
 					</div>
 				</div>

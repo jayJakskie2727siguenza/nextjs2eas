@@ -106,9 +106,6 @@
 				margin-top: 1rem;
 			}
 			&--cta {
-				margin-top: 1rem;
-				display: flex;
-
 				&--inputWrapper {
 					background: white;
 					padding: 10px 20px 10px 20px;
@@ -160,6 +157,16 @@
 					@media (max-width: 700px) {
 						width: 100%;
 					}
+				}
+
+				&--wrapper {
+					margin-top: 1rem;
+					display: flex;
+				}
+
+				&--status {
+					text-transform: capitalize;
+					margin-top: 10px;
 				}
 			}
 		}
