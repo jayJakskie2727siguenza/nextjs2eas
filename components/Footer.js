@@ -112,17 +112,11 @@ const NewsLetterForm = memo(
 );
 
 const Footer = ({ FooterData, FooterGenSetting }) => {
-	const [telephoneNum, setTelephoneNum] = useState("");
-
 	const [state, setState] = useState({
 		email: "",
 		result: "",
 		loading: false,
 	});
-
-	useEffect(() => {
-		setTelephoneNum(handleFormattedTelNum(FooterGenSetting.contact.telephone));
-	}, []);
 
 	const handleEmailInputChange = useCallback(
 		(e) => {
@@ -134,17 +128,6 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 		},
 		[state.email]
 	);
-
-	function formatterPhilNumber(entry = "") {
-		const match = entry
-			.replace(/\D+/g, "")
-			.replace(/^1/, "")
-			.match(/([^\d]*\d[^\d]*){1,10}$/)[0];
-		const part1 = match.length > 2 ? `(${match.substring(0, 3)})` : match;
-		const part2 = match.length > 3 ? ` ${match.substring(3, 6)}` : "";
-		const part3 = match.length > 6 ? `-${match.substring(6, 10)}` : "";
-		return `${part1}${part2}${part3}`;
-	}
 
 	// const submitButton = async (e) => {
 	// 	e.preventDefault();
@@ -179,20 +162,18 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 	// 	}
 	// };
 
-	const handleFormattedTelNum = (getnum) => {
-		return getnum
-			.toString()
-			.split("")
-			.reduce((acc, itm, indx) => {
-				if (indx === 3) {
-					acc += `-${itm}`;
-				} else {
-					acc += `${itm}`;
-				}
+	function formatterPhilNumber(entry) {
+		const match = String(entry)
+			.replace(/\D+/g, "")
+			.replace(/^1/, "")
+			.match(/([^\d]*\d[^\d]*){1,10}$/)[0];
+		const part1 = match.length > 2 ? `(${match.substring(0, 3)})` : match;
+		const part2 = match.length > 3 ? ` ${match.substring(3, 6)}` : "";
+		const part3 = match.length > 6 ? `-${match.substring(6, 10)}` : "";
+		return `${part1}${part2}${part3}`;
+	}
 
-				return acc;
-			}, "");
-	};
+	console.log(typeof FooterGenSetting.contact.cellphone);
 
 	return (
 		<>
@@ -276,7 +257,11 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 
 								{FooterGenSetting.contact.telephone && (
 									<li className="footer__middle--content--items">
-										<a href={`tel:(083) ${telephoneNum}`}>
+										<a
+											href={`tel:(083) ${formatterPhilNumber(
+												FooterGenSetting.contact.telephone
+											)}`}
+										>
 											<div className="footer__middle--content--items--wrapper">
 												<div className="footer__middle--content--items--iconWrapper">
 													<FontAwesomeIcon
@@ -286,7 +271,9 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 												</div>
 												<p className="footer__middle--content--items--text">
 													{FooterGenSetting.contact.telephone &&
-														`(083) ${telephoneNum}`}
+														`
+														${formatterPhilNumber(FooterGenSetting.contact.telephone)}
+														`}
 												</p>
 											</div>
 										</a>
@@ -295,7 +282,11 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 
 								{FooterGenSetting.contact.cellphone && (
 									<li className="footer__middle--content--items">
-										<a href={`tel:+${FooterGenSetting.contact.cellphone}`}>
+										<a
+											href={`tel:+${formatterPhilNumber(
+												FooterGenSetting.contact.cellphone
+											)}`}
+										>
 											<div className="footer__middle--content--items--wrapper">
 												<div className="footer__middle--content--items--iconWrapper">
 													<FontAwesomeIcon
