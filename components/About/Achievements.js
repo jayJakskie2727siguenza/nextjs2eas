@@ -38,8 +38,6 @@ const Achievements = ({ AboutPageAchievementsNodes }) => {
 			<div className="about__achievement--wrapper container">
 				<ul className="about__achievement--lists">
 					{AboutPageAchievementsNodes.map(({ acf: itm }, indx) => {
-						console.log(itm);
-
 						return (
 							<li key={`${indx}`} className="about__achievement--items">
 								<div className="about__achievement--items--imgWrapper">
