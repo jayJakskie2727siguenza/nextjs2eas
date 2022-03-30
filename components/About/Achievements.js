@@ -38,6 +38,8 @@ const Achievements = ({ AboutPageAchievementsNodes }) => {
 			<div className="about__achievement--wrapper container">
 				<ul className="about__achievement--lists">
 					{AboutPageAchievementsNodes.map(({ acf: itm }, indx) => {
+						console.log(itm);
+
 						return (
 							<li key={`${indx}`} className="about__achievement--items">
 								<div className="about__achievement--items--imgWrapper">
@@ -61,13 +63,13 @@ const Achievements = ({ AboutPageAchievementsNodes }) => {
 								</div>
 								<div className="about__achievement--items--content">
 									<h2 className="about__achievement--items--content--numbers">
-										{itm.number}
+										{Boolean(itm.number) ? itm.number : 0}
 									</h2>
 									<p className="about__achievement--items--content--titles">
-										{itm.highlight}
+										{Boolean(itm.highlight) ? itm.highlight : ""}
 									</p>
 									<p className="about__achievement--items--content--accomplishment">
-										{itm.text}
+										{Boolean(itm.text) ? itm.text : ""}
 									</p>
 								</div>
 							</li>
