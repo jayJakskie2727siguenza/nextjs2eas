@@ -1,4 +1,4 @@
-import React, { useState, memo, useCallback, useEffect } from "react";
+import React, { useState, memo, useCallback } from "react";
 import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 // import { Link } from "gatsby";
@@ -27,89 +27,86 @@ import LinkedinFillIcon from "remixicon-react/LinkedinFillIcon";
 
 import defaultImage from "../images/defaultImages.png";
 
-const NewsLetterForm = memo(
-	({
-		state,
-		setState,
-		status,
-		message,
-		onValidated,
-		handleEmailInputChange,
-	}) => {
-		const handleSubmitForm = () => {
-			setState({
-				...state,
-				loading: true,
-			});
+const NewsLetterForm = ({ state, setState, status, onValidated }) => {
+	const handleSubmitForm = () => {
+		setState({
+			...state,
+			loading: true,
+		});
 
-			console.log(message);
+		if (state.email) {
+			onValidated({ EMAIL: state.email });
 
-			if (state.email) {
-				onValidated({ EMAIL: state.email });
-
-				if (status === "success") {
-					setState({
-						...state,
-						result: "success",
-						loading: false,
-					});
-				}
-
-				if (status === "error") {
-					setState({
-						...state,
-						result: "error",
-						loading: false,
-					});
-				}
+			if (status === "success") {
+				setState({
+					...state,
+					result: "success",
+					loading: false,
+				});
 			}
 
-			if (!state.email) {
-				setState({ ...state, result: "pending", loading: false });
+			if (status === "error") {
+				setState({
+					...state,
+					result: "error",
+					loading: false,
+				});
 			}
-		};
+		}
 
-		return (
-			<div className="footer__right--content--cta">
-				<div className="footer__right--content--cta--wrapper">
-					<div className="footer__right--content--cta--inputWrapper">
-						<input
-							className={`footer__right--content--cta--inputWrapper--input${
-								state.result === "pending" ? "--emptyField" : ""
-							}`}
-							type="email"
-							name="email"
-							value={state.email}
-							placeholder={`${
-								state.result === "pending"
-									? "Your Field is Empty"
-									: "Enter Your Email"
-							}`}
-							onChange={handleEmailInputChange}
-						/>
-					</div>
-					<button
-						type="submit"
-						onClick={handleSubmitForm}
-						className={`footer__right--content--cta--inputWrapper--btn${
-							state.result === "error" ? "--error" : ""
+		if (!state.email) {
+			setState({ ...state, result: "pending", loading: false });
+		}
+	};
+
+	const handleChangeInput = (e) => {
+		e.preventDefault();
+		setState({
+			...state,
+			[e.target.name]: e.target.value,
+		});
+	};
+
+	return (
+		<div className="footer__right--content--cta">
+			<div className="footer__right--content--cta--wrapper">
+				<div className="footer__right--content--cta--inputWrapper">
+					<input
+						className={`footer__right--content--cta--inputWrapper--input${
+							state.result === "pending" ? "--emptyField" : ""
 						}`}
-					>
-						{state.result === "success"
-							? "sent"
-							: state.result === "error"
-							? "error"
-							: "submit"}
-					</button>
+						type="email"
+						name="email"
+						value={state.email}
+						placeholder={`${
+							state.result === "pending"
+								? "Your Field is Empty"
+								: "Enter Your Email"
+						}`}
+						onChange={handleChangeInput}
+					/>
 				</div>
-				<p className="footer__right--content--cta--status">
-					{(state.result === "success" && "the email is successfully sent") ||
-						(state.result === "error" && "the email is already exists")}
-				</p>
+				<button
+					type="submit"
+					onClick={handleSubmitForm}
+					className={`footer__right--content--cta--inputWrapper--btn${
+						state.result === "error" ? "--error" : ""
+					}`}
+				>
+					{state.result === "success"
+						? "sent"
+						: state.result === "error"
+						? "error"
+						: "submit"}
+				</button>
 			</div>
-		);
-	}
-);
+			<p className="footer__right--content--cta--status">
+				{(state.result === "success" && "the email is successfully sent") ||
+					(state.result === "error" && "the email is already exists")}
+			</p>
+		</div>
+	);
+};
 
 const Footer = ({ FooterData, FooterGenSetting }) => {
 	const [state, setState] = useState({
@@ -117,17 +114,6 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 		result: "",
 		loading: false,
 	});
-
-	const handleEmailInputChange = useCallback(
-		(e) => {
-			e.preventDefault();
-			setState({
-				...state,
-				[e.target.name]: e.target.value,
-			});
-		},
-		[state.email]
-	);
 
 	// const submitButton = async (e) => {
 	// 	e.preventDefault();
@@ -172,8 +158,6 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 		const part3 = match.length > 6 ? `-${match.substring(6, 10)}` : "";
 		return `${part1}${part2}${part3}`;
 	}
-
-	console.log(typeof FooterGenSetting.contact.cellphone);
 
 	return (
 		<>
@@ -342,7 +326,6 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 											status={status}
 											message={message}
 											onValidated={(formData) => subscribe(formData)}
-											handleEmailInputChange={handleEmailInputChange}
 										/>
 									);
 								}}
