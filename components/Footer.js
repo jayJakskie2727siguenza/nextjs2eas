@@ -153,10 +153,21 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 			.replace(/\D+/g, "")
 			.replace(/^1/, "")
 			.match(/([^\d]*\d[^\d]*){1,10}$/)[0];
-		const part1 = match.length > 2 ? `(${match.substring(0, 3)})` : match;
+		const part1 = match.length > 2 ? `(${match.substring(0, 5)})` : match;
 		const part2 = match.length > 3 ? ` ${match.substring(3, 6)}` : "";
 		const part3 = match.length > 6 ? `-${match.substring(6, 10)}` : "";
 		return `${part1}${part2}${part3}`;
+	}
+
+	function formatterCPPhilNumber(entry) {
+		const match = String(entry);
+
+		const part1 = match.length > 2 ? `+${match.substr(0, 2)}` : "";
+		const part2 = match.length > 3 ? ` ${match.substr(2, 3)}` : "";
+		const part3 = match.length > 6 ? `-${match.substr(5, 3)}` : "";
+		const part4 = match.length > 7 ? `-${match.substr(8, 10)}` : "";
+
+		return `${part1}${part2}${part3}${part4}`;
 	}
 
 	return (
@@ -267,7 +278,7 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 								{FooterGenSetting.contact.cellphone && (
 									<li className="footer__middle--content--items">
 										<a
-											href={`tel:+${formatterPhilNumber(
+											href={`tel:+${formatterCPPhilNumber(
 												FooterGenSetting.contact.cellphone
 											)}`}
 										>
@@ -280,7 +291,7 @@ const Footer = ({ FooterData, FooterGenSetting }) => {
 												</div>
 												<p className="footer__middle--content--items--text">
 													{FooterGenSetting.contact.cellphone &&
-														`${formatterPhilNumber(
+														`${formatterCPPhilNumber(
 															FooterGenSetting.contact.cellphone
 														)}`}
 												</p>
