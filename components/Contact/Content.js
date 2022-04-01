@@ -78,15 +78,15 @@ const Content = ({ Contactpage, ContactPageGeneralSettings }) => {
 		}
 	};
 
-	function formatterPhilNumber(entry = "") {
-		const match = entry
-			.replace(/\D+/g, "")
-			.replace(/^1/, "")
-			.match(/([^\d]*\d[^\d]*){1,10}$/)[0];
-		const part1 = match.length > 2 ? `(${match.substring(0, 3)})` : match;
-		const part2 = match.length > 3 ? ` ${match.substring(3, 6)}` : "";
-		const part3 = match.length > 6 ? `-${match.substring(6, 10)}` : "";
-		return `${part1}${part2}${part3}`;
+	function formatterCPPhilNumber(entry) {
+		const match = String(entry);
+
+		const part1 = match.length > 1 ? `+${match.substr(0, 2)}` : "";
+		const part2 = match.length > 2 ? ` ${match.substr(2, 3)}` : "";
+		const part3 = match.length > 4 ? `-${match.substr(5, 3)}` : "";
+		const part4 = match.length > 7 ? `-${match.substr(8, 15)}` : "";
+
+		return `${part1}${part2}${part3}${part4}`;
 	}
 
 	const handleSubmit = (e) => {
@@ -142,7 +142,7 @@ const Content = ({ Contactpage, ContactPageGeneralSettings }) => {
 						</h2>
 						<h2 className="contact__content--info--subheading">
 							{ContactPageGeneralSettings.contact.cellphone &&
-								`${formatterPhilNumber(
+								`${formatterCPPhilNumber(
 									ContactPageGeneralSettings.contact.cellphone
 								)}`}
 						</h2>
