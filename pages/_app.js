@@ -15,6 +15,10 @@ function MyApp({ Component, pageProps }) {
 					integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
 					crossOrigin="anonymous"
 				/>
+				<meta
+					name="google-site-verification"
+					content="CA8JlzXpuHcB3aWhPuFN3_FMcUQsKBOv9hVT802t0og"
+				/>
 			</Head>
 
 			<Script
@@ -36,10 +40,16 @@ function MyApp({ Component, pageProps }) {
 					"@context": "http://www.schema.org",
 					"@type": "AccountingService",
 					name: "2E Accounting Solutions",
+					url: "https://www.2eas.ph/",
+					sameAs: [
+						"https://web.facebook.com/2E-Accounting-Solutions-Philippines-2304099389605381",
+					],
 					logo: "https://www.2eas.ph/_next/image?url=https%3A%2F%2F2eas-1-629268.ingress-baronn.easywp.com%2Fwp-content%2Fuploads%2F2021%2F09%2F2EAS-LOGO-3.png&w=3840&q=75",
 					priceRange: "$$",
+					image:
+						"https://www.2eas.ph/_next/image?url=https%3A%2F%2F2eas-1-629268.ingress-baronn.easywp.com%2Fwp-content%2Fuploads%2F2021%2F09%2F2EAS-LOGO-3.png&w=3840&q=75",
 					description:
-						"2E Accounting Solutions is the leading accounting firm in the Philippines providing accounting consultancy, outsourcing remote staff, taxation, or bookkeeping services. We also offer Accounting Software & Taxation Systems for local businesses and e-commerce businesses.\n",
+						"2E Accounting Solutions is the leading accounting firm in the Philippines providing accounting consultancy, outsourcing remote staff, taxation, or bookkeeping services. We also offer Accounting Software & Taxation Systems for local businesses and e-commerce businesses. \n",
 					address: {
 						"@type": "PostalAddress",
 						streetAddress: "21 Apple Street, Barangay Dadiangas North",
