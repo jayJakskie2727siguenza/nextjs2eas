@@ -66,11 +66,11 @@ const Hero = ({ HomepageHero }) => {
 			</div>
 			<div className="home__hero--content container">
 				<div className="home__hero--content--description">
-					<h2 className="home__hero--content--description--title">
+					<h1 className="home__hero--content--description--title">
 						{HomepageHero.heading ||
 							"no more struggling to your accounting and taxation problems!"}
 						{/* No More Struggling To Your Accounting And Taxation Problems! */}
-					</h2>
+					</h1>
 					<p className="home__hero--content--description--subTitle">
 						{HomepageHero.subheading ||
 							`fast, accurate, complete, quality accounting and taxation system for
