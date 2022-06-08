@@ -27,7 +27,7 @@ import {
 // `;
 
 const ServicesPage = ({
-	// seoSettingSlug,
+	// // seoSettingSlug,
 	servicesPageSlug,
 	generalSettingSlug,
 	generalSlug,
@@ -35,13 +35,8 @@ const ServicesPage = ({
 	acctngTxationNodes,
 	servicesSlug,
 }) => {
-	// const { sitemetadata } = seoSettingSlug.acf;
 	const { sitemetatitle, sitemetadescription } =
 		servicesPageSlug.acf.servicepage_seo;
-
-	// const {
-	// 	wpPage: { services_cf },
-	// } = useStaticQuery(myGraphql);
 
 	return (
 		<Layout

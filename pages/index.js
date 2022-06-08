@@ -19,7 +19,6 @@ import {
 } from "../utils/wordpress";
 
 export default function Home({
-	// seoSettingSlug,
 	homePageSlug,
 	generalSettingSlug,
 	homePageFeaturesNodes,
@@ -28,10 +27,9 @@ export default function Home({
 	homePageFeaturesHighlightNodes,
 	homePageAddonsNodes,
 	generalSlug,
-	// sampleNodes,
 }) {
-	// const { sitemetadata } = seoSettingSlug.acf;
 	const { sitemetatitle, sitemetadescription } = homePageSlug.acf.homepage_seo;
+	// const result = generalSlug;
 
 	// const jsxPosts = posts.map((post) => {
 	// 	const featuredMediaId = post["featured_media"];
@@ -42,43 +40,42 @@ export default function Home({
 	// const jsxEvents = events.map((event) => {
 	// 	return <Event event={event} key={event.id} />;
 	// });
-	// console.log(sitemetadata);
-	// console.log(sitemetadescription);
+
 	return (
-		<Layout
-			Banner={generalSlug.acf.banner}
-			FooterData={generalSlug.acf.footer}
-			FooterGenSetting={generalSettingSlug.acf}
-		>
-			<Seo
-				title={sitemetatitle}
-				description={sitemetadescription}
-				path="/"
-				featuredImage={generalSettingSlug.acf.websiteicon.url}
-				// sitemetadata={sitemetadata}
-				// sitetitle={site_title}
-			/>
-			<Hero HomepageHero={homePageSlug.acf.hero} />
-			<Why
-				HomepageWhy={homePageSlug.acf.why}
-				homePageFeaturesNodes={homePageFeaturesNodes}
-			/>
-			<Service
-				HomepageServices={homePageSlug.acf.services}
-				homePageServicesNodes={homePageServicesNodes}
-			/>
-			<AboutSec
-				HomepageAbout={homePageSlug.acf.about}
-				HomepageOverviews={homePageSlug.acf.overviews}
-				homePageAboutProjectsNodes={homePageAboutProjectsNodes}
-			/>
-			<Features
-				HomepageFeatures={homePageSlug.acf.features}
-				HomepageFeaturesHighlightNodes={homePageFeaturesHighlightNodes}
-				HomepageAddonsNodes={homePageAddonsNodes}
-				HomepageAddons={homePageSlug.acf.addons}
-			/>
-		</Layout>
+		<>
+			<Layout
+				Banner={generalSlug.acf.banner}
+				FooterData={generalSlug.acf.footer}
+				FooterGenSetting={generalSettingSlug.acf}
+			>
+				<Seo
+					title={sitemetatitle}
+					description={sitemetadescription}
+					path="/"
+					featuredImage={generalSettingSlug.acf.websiteicon.url}
+				/>
+				<Hero HomepageHero={homePageSlug.acf.hero} />
+				<Why
+					HomepageWhy={homePageSlug.acf.why}
+					homePageFeaturesNodes={homePageFeaturesNodes}
+				/>
+				<Service
+					HomepageServices={homePageSlug.acf.services}
+					homePageServicesNodes={homePageServicesNodes}
+				/>
+				<AboutSec
+					HomepageAbout={homePageSlug.acf.about}
+					HomepageOverviews={homePageSlug.acf.overviews}
+					homePageAboutProjectsNodes={homePageAboutProjectsNodes}
+				/>
+				<Features
+					HomepageFeatures={homePageSlug.acf.features}
+					HomepageFeaturesHighlightNodes={homePageFeaturesHighlightNodes}
+					HomepageAddonsNodes={homePageAddonsNodes}
+					HomepageAddons={homePageSlug.acf.addons}
+				/>
+			</Layout>
+		</>
 	);
 	// return (
 	// 	<>
@@ -109,7 +106,6 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-	// const seoSettingSlug = await getWpPagesSlug("seosettings");
 	const homePageSlug = await getWpPagesSlug("home");
 	const generalSlug = await getWpPagesSlug("general");
 	const generalSettingSlug = await getWpPagesSlug("generalsettings");
@@ -118,11 +114,9 @@ export async function getStaticProps() {
 	const homePageAboutProjectsNodes = await getCPTAboutProjects();
 	const homePageFeaturesHighlightNodes = await getCPTHighlightFeatures();
 	const homePageAddonsNodes = await getCPTAddons();
-	// const sampleNodes = await getCPTHighlightFeaturesNodes();
 
 	return {
 		props: {
-			// seoSettingSlug,
 			homePageSlug,
 			generalSettingSlug,
 			homePageFeaturesNodes,
@@ -131,7 +125,6 @@ export async function getStaticProps() {
 			homePageFeaturesHighlightNodes,
 			homePageAddonsNodes,
 			generalSlug,
-			// sampleNodes,
 		},
 		revalidate: 10, // In seconds
 	};

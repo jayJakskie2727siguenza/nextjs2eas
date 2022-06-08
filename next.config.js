@@ -16,7 +16,8 @@ if (process.env.NODE_ENV === "development") {
 		(images = {
 			//enter the domain or subdomain where you have WordPress installed
 			// domains: ["nextjs2eas.local"],
-			domains: ["2eas-1-629268.ingress-baronn.easywp.com"],
+			// domains: ["2eas-1-629268.ingress-baronn.easywp.com"],
+			domains: ["2eas-1-629268.ingress-baronn.ewp.live"],
 		});
 } else {
 	(env = {
@@ -29,7 +30,7 @@ if (process.env.NODE_ENV === "development") {
 		(images = {
 			//enter the domain or subdomain where you have WordPress installed
 			// domains: ["nextjs2eas.local"],
-			domains: ["2eas-1-629268.ingress-baronn.easywp.com"],
+			domains: ["2eas-1-629268.ingress-baronn.ewp.live"],
 		});
 }
 

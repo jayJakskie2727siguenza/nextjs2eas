@@ -49,10 +49,6 @@ const AboutPage = ({
 			FooterGenSetting={generalSettingSlug.acf}
 		>
 			<Seo
-				// title="title"
-				// description="description"
-				// sitemetadata="sitemetadata"
-				// sitetitle="sitetitle"
 				title={sitemetatitle}
 				description={sitemetadescription}
 				path="/about"

@@ -63,7 +63,11 @@ const Header = ({ Banner }) => {
 								objectFit="cover"
 								alt="2eas"
 							/>
-							{/* <img className="navBar__header--img" src={imgLogo} alt="2eas" /> */}
+							{/* <img
+								className="navBar__header--img"
+								src={Banner.image.url}
+								alt="2eas"
+							/> */}
 						</div>
 					</Link>
 					<div className="navBar__header--desktopViewWrapper">

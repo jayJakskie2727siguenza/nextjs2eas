@@ -9,25 +9,9 @@ import CallToAction from "../components/CallToAction";
 import Content from "../components/Contact/Content";
 import { getWpPagesSlug } from "../utils/wordpress";
 
-// const myGraphql = graphql`
-// 	{
-// 		wpPage(uri: { eq: "/contact/" }) {
-// 			contactpage_cf {
-// 				contactpageSeo {
-// 					sitemetatitle
-// 					sitemetadescription
-// 				}
-// 			}
-// 		}
-// 	}
-// `;
-
 const ContactPage = ({ contactPageSlug, generalSettingSlug, generalSlug }) => {
 	const { sitemetatitle, sitemetadescription } =
 		contactPageSlug.acf.contactpage_seo;
-	// const {
-	// 	wpPage: { contactpage_cf },
-	// } = useStaticQuery(myGraphql);
 
 	return (
 		<Layout
